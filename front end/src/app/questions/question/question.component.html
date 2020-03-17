@@ -3,7 +3,8 @@
 
   <div *ngFor="let answer of question.answers, let i = index">
     <label>
-      {{i+1}}. {{answer.value}} <div *ngIf="answer.isCorrect"><i class="fas fa-check-square"></i></div>
+      <div *ngIf="answer.isCorrect">{{i+1}}. {{answer.value}} <i class="fas fa-check-square"></i></div>
+      <div *ngIf="!answer.isCorrect">{{i+1}}. {{answer.value}}</div>
     </label>
     <br>
   </div>

@@ -7,7 +7,9 @@
     </label>
 
     <br>
-    <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
+    <button class="button-card" (click)="addAnswer()">
+      <i class="fas fa-plus"></i> Ajouter une réponse
+    </button>
 
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls; let i = index">
@@ -15,13 +17,14 @@
           <label>
             Réponse <input type="text" [formControlName]="'value'">
             <br>
-            Correcte ? <input type="checkbox" [formControlName]="'isCorrect'">
+            Réponse correcte ? <input type="checkbox" [formControlName]="'isCorrect'">
           </label>
         </div>
       </div>
     </div>
 
     <br>
-    <button class="button-card" (click)="addQuestion()">Créer la question</button>
+    <button class="button-card" (click)="addQuestion()">
+      <i class="fas fa-check"></i> Créer la question</button>
   </form>
 </div>
