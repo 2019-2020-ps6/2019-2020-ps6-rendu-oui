@@ -1,9 +1,22 @@
 @import '../../../styles/card.scss';
 
 h2 {
-  background: red;
+  background: cornflowerblue;
 }
 
 .button-card {
+  background: white;
   margin-left: 1em;
 }
+#demarrer{
+  color: green ;
+}
+
+#supprimer{
+  color: red;
+}
+
+#editer{
+  color: darkviolet;
+}
+
