@@ -1,0 +1,13 @@
+<div class="edit-quiz">
+  <h2>{{quiz.name}}</h2>
+
+  <app-question-form [quiz]="quiz"></app-question-form>
+
+  <br>
+  <app-question-list [quiz]="quiz"></app-question-list>
+
+  <br>
+  <nav>
+    <a routerLink="/quiz-list">Retour à la liste des quiz</a>
+  </nav>
+</div>

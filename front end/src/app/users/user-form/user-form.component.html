@@ -1,0 +1,17 @@
+<div class="card">
+  <h2>Ajouter un nouveau utilisateur</h2>
+  <form class="user-form" [formGroup]="userForm">
+    <label for="lastname">
+      Nom : <br>
+      <input class="input-custom" type="text" id="lastname" [formControlName]="'lastname'">
+    </label>
+    <br>
+    <label for="name">
+      Prénom : <br>
+      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+    </label>
+    <br>
+    <br>
+    <button type="submit" class="button-card" (click)="addUser()">Create</button>
+  </form>
+</div>

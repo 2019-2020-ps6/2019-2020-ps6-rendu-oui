@@ -1,0 +1,30 @@
+<div class="card">
+  <h2>
+    <i class="fab fa-leanpub"></i>
+    Nom: {{quiz.name}}
+    <br>
+    <span> Theme: {{quiz.theme}} </span>
+  </h2>
+
+  <!-- Logos -->
+  <div *ngIf="quiz.theme === 'Actor'">
+    <i class="fas fa-smile"></i>
+  </div>
+  <div *ngIf="quiz.theme === 'Sport'">
+    <i class="fas fa-skiing-nordic"></i>
+  </div>
+
+  <div *ngIf="quiz.creationDate">
+    <p>Crée le {{quiz.creationDate | date: 'EEEE d MMMM y'}}</p>
+  </div>
+
+  <p>Nombre de questions: {{quiz.questions.length}}</p>
+
+  <button class="button-card" (click)="selectQuiz()">Demarrer</button>
+  <button class="button-card" (click)="deleteQuiz()">Supprimer</button>
+  <button class="button-card">
+    <nav>
+      <a routerLink="/edit-quiz/{{quiz.id}}">Editer</a>
+    </nav>
+  </button>
+</div>

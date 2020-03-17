@@ -1,0 +1,27 @@
+<div class="card">
+  <h2>Créer une nouvelle question</h2>
+  <form class="question-form" [formGroup]="questionForm">
+    <label for="title">
+      Enoncé : <br>
+      <input class="input-custom" type="text" id="title" [formControlName]="'label'">
+    </label>
+
+    <br>
+    <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
+
+    <div class="answer" formArrayName="answers">
+      <div *ngFor="let address of answers.controls; let i = index">
+        <div class="answer-form" [formGroupName]="i">
+          <label>
+            Réponse <input type="text" [formControlName]="'value'">
+            <br>
+            Correcte ? <input type="checkbox" [formControlName]="'isCorrect'">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <button class="button-card" (click)="addQuestion()">Créer la question</button>
+  </form>
+</div>

@@ -1,0 +1,5 @@
+<div class="question-list">
+  <div class="question" *ngFor="let question of quiz.questions">
+    <app-question [question]="question" (questionDeleted)="deleteQuestion($event)"></app-question>
+  </div>
+</div>
