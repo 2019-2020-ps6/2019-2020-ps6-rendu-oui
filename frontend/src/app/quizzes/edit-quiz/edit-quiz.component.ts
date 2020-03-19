@@ -2,7 +2,6 @@ import { Component, OnInit, Input} from '@angular/core';
 import { Quiz } from '../../../models/quiz.model';
 
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
@@ -16,8 +15,7 @@ export class EditQuizComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private quizService: QuizService,
-    private location: Location
+    private quizService: QuizService
   ) {
   }
 

@@ -43,12 +43,11 @@ export class QuizFormComponent implements OnInit {
     // and open your console in your browser by pressing F12 and choose the tab "Console".
     // You will see your quiz object when you click on the create button.
     console.log('Add quiz: ', quizToCreate);
-    quizToCreate.questions = [];
-    quizToCreate.creationDate = new Date();
-    quizToCreate.id = String(this.quizService.quizzes$.value.length + 1);
+    // quizToCreate.questions = [];
+    // quizToCreate.creationDate = new Date();
+    // quizToCreate.id = String(this.quizService.quizzes$.value.length + 1);
 
     // Now, add your quiz in the list!
     this.quizService.addQuiz(quizToCreate);
   }
-
 }
