@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import {Question} from '../../../models/question.model';
-import {QuestionService} from '../../../services/question.service';
-import {Quiz} from '../../../models/quiz.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+
+import { Question } from '../../../models/question.model';
+import { Quiz } from '../../../models/quiz.model';
+import { QuizService } from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-question-form',
@@ -12,10 +13,11 @@ import {Quiz} from '../../../models/quiz.model';
 export class QuestionFormComponent implements OnInit {
 
   private questionForm: FormGroup;
+
   @Input()
   public quiz: Quiz;
 
-  constructor(public formBuilder: FormBuilder, public questionService: QuestionService) {
+  constructor( public formBuilder: FormBuilder, public quizService: QuizService ) {
     this.initializeQuestionForm();
   }
 
@@ -46,6 +48,8 @@ export class QuestionFormComponent implements OnInit {
 
   addQuestion() {
     const questionToAdd = this.questionForm.getRawValue() as Question;
-    this.questionService.addQuestion(questionToAdd, this.quiz);
+    this.quizService.addQuestion(questionToAdd, this.quiz);
+
+    this.initializeQuestionForm(); // Remise à 'zéro' des champs de saisie
   }
 }

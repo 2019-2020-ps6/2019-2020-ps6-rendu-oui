@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input } from '@angular/core';
+
 import { Question } from '../../../models/question.model';
-import {Quiz} from '../../../models/quiz.model';
-import {QuestionService} from '../../../services/question.service';
+import { Quiz } from '../../../models/quiz.model';
+import { QuizService } from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-question-list',
@@ -10,16 +11,13 @@ import {QuestionService} from '../../../services/question.service';
 })
 export class QuestionListComponent {
 
-  private questions: Question[];
-
   @Input()
   public quiz: Quiz;
 
-  constructor(public questionService: QuestionService) {
-    this.questionService.questions$.subscribe((questions) => this.questions = questions);
+  constructor(public quizService: QuizService) {
   }
 
   deleteQuestion(question: Question) {
-    this.questionService.deleteQuestion(question, this.quiz);
+    this.quizService.deleteQuestion(question, this.quiz);
   }
 }

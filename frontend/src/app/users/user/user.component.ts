@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../../models/user.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { User } from '../../../models/user.model';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+
   @Input()
   user: User;
 

@@ -13,7 +13,7 @@ export class UserService {
    */
 
   /**
-   * The list of user.
+   * The list of users.
    * The list is retrieved from the mock.
    */
   private users: User[] = [];

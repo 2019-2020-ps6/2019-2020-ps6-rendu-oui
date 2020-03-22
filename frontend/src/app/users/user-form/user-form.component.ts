@@ -13,7 +13,7 @@ export class UserFormComponent implements OnInit {
 
   public userForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public userService: UserService) {
+  constructor( public formBuilder: FormBuilder, public userService: UserService ) {
     // Form creation
     this.userForm = this.formBuilder.group({
       lastname: [''],
@@ -26,7 +26,6 @@ export class UserFormComponent implements OnInit {
 
   addUser() {
     const userToCreate: User = this.userForm.getRawValue() as User;
-
     userToCreate.id = String(this.userService.users$.value.length + 1);
 
     this.userService.addUser(userToCreate);

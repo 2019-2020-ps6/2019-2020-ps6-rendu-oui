@@ -1,8 +1,7 @@
-import { Component, OnInit, Input} from '@angular/core';
-import { User } from '../../../models/user.model';
-
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+
+import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -11,13 +10,13 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent implements OnInit {
+
   @Input()
   user: User;
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
-    private location: Location
+    private userService: UserService
   ) {
   }
 

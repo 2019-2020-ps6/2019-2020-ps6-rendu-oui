@@ -8,4 +8,4 @@ const manageAllErrors = (res, err) => {
   }
 }
 
-module.exports = manageAllErrors;
+module.exports = manageAllErrors

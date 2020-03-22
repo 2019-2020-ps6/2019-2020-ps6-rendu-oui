@@ -18,14 +18,10 @@ export class QuizListComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  quizSelected(selected: boolean) {
-    console.log('Any quiz selected ?', selected);
+    console.log('Liste des quiz : ', this.quizList);
   }
 
   deleteQuiz(quiz: Quiz) {
-    console.log('Quiz deleted:', quiz.name);
     this.quizService.deleteQuiz(quiz);
   }
 

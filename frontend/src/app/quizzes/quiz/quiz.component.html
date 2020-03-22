@@ -20,7 +20,11 @@
 
   <p>Nombre de questions: {{quiz.questions.length}}</p>
 
-  <button class="button-card" (click)="selectQuiz()" id="demarrer">Demarrer</button>
+  <button class="button-card">
+    <nav>
+      <a routerLink="/play-quiz/{{quiz.id}}" id="play">Demarrer</a>
+    </nav>
+  </button>
   <button class="button-card" (click)="deleteQuiz()" id="supprimer">Supprimer</button>
   <button class="button-card">
     <nav>

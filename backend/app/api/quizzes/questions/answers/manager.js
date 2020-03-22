@@ -1,5 +1,6 @@
 const { Answer } = require('../../../../models')
 const { getQuestionFromQuiz } = require('../manager')
+const { NotFoundError } = require('../../../../utils/errors/not-found-error')
 
 /**
  * filterAnswersFromQuestion.

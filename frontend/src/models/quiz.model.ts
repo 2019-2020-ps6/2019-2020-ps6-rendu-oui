@@ -5,7 +5,7 @@ export interface Quiz {
     theme: Theme;
     questions: Question[];
     creationDate?: Date;
-    id: string;
+    id?: string;
 }
 
 export enum Theme {

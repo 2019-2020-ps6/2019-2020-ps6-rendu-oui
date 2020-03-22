@@ -11,10 +11,12 @@ import { QuizComponent         } from './quizzes/quiz/quiz.component';
 import { QuizListComponent     } from './quizzes/quiz-list/quiz-list.component';
 import { QuizFormComponent     } from './quizzes/quiz-form/quiz-form.component';
 import { EditQuizComponent     } from './quizzes/edit-quiz/edit-quiz.component';
+import { PlayQuizComponent     } from './quizzes/play-quiz/play-quiz.component';
 
 import { QuestionComponent     } from './questions/question/question.component';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
 import { QuestionFormComponent } from './questions/question-form/question-form.component';
+import { QuestionGameComponent } from './questions/question-game/question-game.component';
 
 import { UserComponent         } from './users/user/user.component';
 import { UserListComponent     } from './users/user-list/user-list.component';
@@ -31,11 +33,14 @@ import { CreateQuizComponent   } from './quizzes/create-quiz/create-quiz.compone
     QuizListComponent,
     QuizFormComponent,
     EditQuizComponent,
+
     CreateQuizComponent,
+    PlayQuizComponent,
 
     QuestionComponent,
     QuestionListComponent,
     QuestionFormComponent,
+    QuestionGameComponent,
 
     UserComponent,
     UserListComponent,

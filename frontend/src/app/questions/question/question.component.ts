@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Input, Output} from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Question } from '../../../models/question.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { Question } from '../../../models/question.model';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
+
   @Input()
   question: Question;
 

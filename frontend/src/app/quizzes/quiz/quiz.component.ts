@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Quiz } from '../../../models/quiz.model';
 
 @Component({
@@ -12,8 +12,6 @@ export class QuizComponent implements OnInit {
   quiz: Quiz;
 
   @Output()
-  quizSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output()
   quizDeleted: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
 
@@ -21,10 +19,7 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  selectQuiz() {
-    this.quizSelected.emit(true);
+    console.log('Quiz :', this.quiz);
   }
 
   deleteQuiz() {

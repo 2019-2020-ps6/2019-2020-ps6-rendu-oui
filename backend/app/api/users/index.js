@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.put('/:userId', (req, res) => {
   try {
-    console.log(req.body)
+    console.log('Put ', req.body)
     res.status(200).json(User.update(req.params.userId, req.body))
   } catch (err) {
     res.status(500).json(err)
@@ -23,7 +23,7 @@ router.put('/:userId', (req, res) => {
 
 router.delete('/:userId', (req, res) => {
   try {
-    console.log(req.params.userId)
+    console.log('Delete ', req.params.userId)
     res.status(200).json(User.delete(req.params.userId))
   } catch (err) {
     res.status(500).json(err)
@@ -32,7 +32,7 @@ router.delete('/:userId', (req, res) => {
 
 router.get('/:userId', (req, res) => {
   try {
-    console.log(req.params.userId)
+    console.log('Get ', req.params.userId)
     res.status(200).json(User.getById(req.params.userId))
   } catch (err) {
     res.status(500).json(err)
