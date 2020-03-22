@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
     // If answers have been provided in the request, we create the answer and update the response to send.
     if (req.body.answers && req.body.answers.length > 0) {
       const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
-      question = {...question, answers}
+      question = { ...question, answers }
     }
     res.status(201).json(question)
   } catch (err) {
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
 router.put('/:questionId', (req, res) => {
   try {
     const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
-    let updatedQuestion = Question.update(req.params.questionId, { label: req.body.label, quizId: question.quizId })
+    const updatedQuestion = Question.update(req.params.questionId, { label: req.body.label, quizId: question.quizId })
     res.status(200).json(updatedQuestion)
   } catch (err) {
     manageAllErrors(res, err)

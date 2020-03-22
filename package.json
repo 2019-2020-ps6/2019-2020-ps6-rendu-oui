@@ -17,4 +17,3 @@
     "start": "concurrently \"npm run start:front\" \"npm run start:back\""
   }
 }
-

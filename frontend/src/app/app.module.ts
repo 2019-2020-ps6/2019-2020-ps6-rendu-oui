@@ -20,6 +20,7 @@ import { UserComponent         } from './users/user/user.component';
 import { UserListComponent     } from './users/user-list/user-list.component';
 import { UserFormComponent     } from './users/user-form/user-form.component';
 import { EditUserComponent     } from './users/edit-user/edit-user.component';
+import { CreateQuizComponent   } from './quizzes/create-quiz/create-quiz.component';
 
 @NgModule({
   declarations: [ // Déclaration des composants
@@ -30,6 +31,7 @@ import { EditUserComponent     } from './users/edit-user/edit-user.component';
     QuizListComponent,
     QuizFormComponent,
     EditQuizComponent,
+    CreateQuizComponent,
 
     QuestionComponent,
     QuestionListComponent,

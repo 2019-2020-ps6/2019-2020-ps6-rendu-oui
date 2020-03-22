@@ -1,4 +1,9 @@
-<app-quiz-form></app-quiz-form>
+<button class="button-card" id="creation">
+  <nav>
+    <a routerLink="/create-quiz" id="router-creation"> Créer un nouveau quiz</a>
+  </nav>
+</button>
+
 <br>
 <div class="quiz-list">
   <div class="quiz" *ngFor="let quiz of quizList">
@@ -10,3 +15,6 @@
 <nav>
   <a routerLink="/user-list">Voir la liste des utilisateurs</a>
 </nav>
+
+
+
