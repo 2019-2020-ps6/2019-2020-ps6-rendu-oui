@@ -1,5 +1,6 @@
-<div class="card">
+<div class="card" id="form">
   <h2>Créer un nouveau quiz</h2>
+
   <form class="quiz-form" [formGroup]="quizForm">
     <label for="name">
       Nom du quiz : <br>
@@ -12,8 +13,11 @@
         <option *ngFor="let currentTheme of THEME_LIST" [value] = currentTheme> {{currentTheme}} </option>
       </select>
     </label>
+
     <br>
     <br>
-    <button type="submit" class="button-card" id="creer" (click)="addQuiz()">Creer</button>
+    <button type="submit" class="button-card" routerLink="/quiz-list" id="creer" (click)="addQuiz()">Créer</button>
   </form>
 </div>
+
+<a routerLink="/quiz-list" id="retourAccueil">Retour à la liste des quiz</a>

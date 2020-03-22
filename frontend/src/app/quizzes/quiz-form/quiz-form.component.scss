@@ -1,6 +1,11 @@
 @import '../../../styles/card.scss';
 
-.button-card{
+#form {
+  position: relative;
+  left: 35%;
+}
+
+.button-card {
   width: 100px;
   height: 56px;
   size: 1000px;
@@ -8,8 +13,14 @@
   color: black;
 }
 
-#creer{
+#creer {
   position: relative;
   left: 200px;
+}
+
+#retourAccueil {
+  position: relative;
+  top: 80px;
+  left: 0;
 }
 
