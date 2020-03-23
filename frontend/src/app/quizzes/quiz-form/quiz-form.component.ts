@@ -49,5 +49,6 @@ export class QuizFormComponent implements OnInit {
 
     // Now, add your quiz in the list!
     this.quizService.addQuiz(quizToCreate);
+    return quizToCreate.id;
   }
 }

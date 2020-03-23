@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
 
   {path: 'edit-quiz/:id', component: EditQuizComponent},
+  {path: 'edit-quiz/:id', component: QuizFormComponent},
   {path: 'quiz-form', component: QuizFormComponent},
   {path: 'play-quiz/:id', component: PlayQuizComponent},
 
