@@ -7,9 +7,15 @@
     </label>
 
     <br>
-    <button class="button-card" (click)="addAnswer()">
-      <i class="fas fa-plus"></i> Ajouter une réponse
-    </button>
+    <div *ngIf="answers.controls.length < 4; then add else limit"></div>
+    <ng-template #add>
+      <button class="button-card" (click)="addAnswer()">
+        <i class="fas fa-plus"></i> Ajouter une réponse
+      </button>
+    </ng-template>
+    <ng-template #limit>
+      Limite de question atteinte
+    </ng-template>
 
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls; let i = index">
