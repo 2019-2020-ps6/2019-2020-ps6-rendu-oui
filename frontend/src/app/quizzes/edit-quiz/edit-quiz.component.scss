@@ -4,6 +4,21 @@
   background: cornflowerblue;
 }
 
-#quizzes{
+#nom{
+  text-align: center;
+}
 
+#edit{
+  width:100%;
+}
+#question-form, #questions {
+  display: inline-block;
+  vertical-align: top;
+}
+#question-form {
+  width:40%;
+}
+
+#questions {
+  width: 50%;
 }
