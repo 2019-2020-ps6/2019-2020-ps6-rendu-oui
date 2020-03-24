@@ -11,7 +11,6 @@ import { QuizComponent         } from './quizzes/quiz/quiz.component';
 import { QuizListComponent     } from './quizzes/quiz-list/quiz-list.component';
 import { QuizFormComponent     } from './quizzes/quiz-form/quiz-form.component';
 import { EditQuizComponent     } from './quizzes/edit-quiz/edit-quiz.component';
-import { PlayQuizComponent     } from './quizzes/play-quiz/play-quiz.component';
 
 import { QuestionComponent     } from './questions/question/question.component';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
@@ -32,7 +31,6 @@ import { EditUserComponent     } from './users/edit-user/edit-user.component';
     QuizListComponent,
     QuizFormComponent,
     EditQuizComponent,
-    PlayQuizComponent,
 
     QuestionComponent,
     QuestionListComponent,
