@@ -1,30 +1,31 @@
 <div class="card">
-  <h2>
-    <i class="fab fa-leanpub"></i>
-    Nom: {{quiz.name}}
-    <br>
-    <span> Theme: {{quiz.theme}} </span>
-  </h2>
+  <div *ngIf="quiz">
+    <h2>
+      Nom: {{quiz.name}}
+      <br>
+      <span> Thème: {{quiz.theme}} </span>
+    </h2>
 
-  <!-- Logos -->
-  <div *ngIf="quiz.theme === 'Actor'">
-    <i class="fas fa-smile"></i>
+    <!-- Logos --><!--
+    <div *ngIf="quiz.theme === 'Actor'">
+      <i class="fas fa-smile"></i>
+    </div>
+    <div *ngIf="quiz.theme === 'Sport'">
+      <i class="fas fa-skiing-nordic"></i>
+    </div>
+
+    <div *ngIf="quiz.creationDate">
+      <p>Crée le {{quiz.creationDate | date: 'EEEE d MMMM y'}}</p>
+    </div>
+-->
+    <p>Nombre de questions: {{quiz.questions.length}}</p>
+
+    <button class="button-card" *ngIf="quiz.questions.length > 0">
+        <a routerLink="/play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="play">Demarrer</a>
+    </button>
+    <button class="button-card" (click)="deleteQuiz()" id="supprimer">Supprimer</button>
+    <button class="button-card">
+        <a routerLink="/edit-quiz/{{quiz.id}}" id="editer">Editer</a>
+    </button>
   </div>
-  <div *ngIf="quiz.theme === 'Sport'">
-    <i class="fas fa-skiing-nordic"></i>
-  </div>
-
-  <div *ngIf="quiz.creationDate">
-    <p>Crée le {{quiz.creationDate | date: 'EEEE d MMMM y'}}</p>
-  </div>
-
-  <p>Nombre de questions: {{quiz.questions.length}}</p>
-
-  <button class="button-card">
-      <a routerLink="/play-quiz/{{quiz.id}}" id="play">Demarrer</a>
-  </button>
-  <button class="button-card" (click)="deleteQuiz()" id="supprimer">Supprimer</button>
-  <button class="button-card">
-      <a routerLink="/edit-quiz/{{quiz.id}}" id="editer">Editer</a>
-  </button>
 </div>

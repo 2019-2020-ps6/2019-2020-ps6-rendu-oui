@@ -4,9 +4,10 @@ const { Quiz } = require('../../models')
 
 const QuestionsRouter = require('./questions')
 
-const { buildQuiz, buildQuizzes } = require('./manager.js')
+const { buildQuiz, buildQuizzes } = require('./manager')
 
 const router = new Router()
+router.use('/:quizId/questions', QuestionsRouter)
 
 router.get('/', (req, res) => {
   try {
@@ -59,5 +60,4 @@ router.post('/', (req, res) => {
   }
 })
 
-router.use('/:quizId/questions', QuestionsRouter)
 module.exports = router

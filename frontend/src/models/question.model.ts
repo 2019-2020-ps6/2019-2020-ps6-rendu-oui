@@ -1,14 +1,14 @@
 export interface Answer {
-    id?: string;
+    // id?: string;
     type?: string;
     value: string;
     isCorrect: boolean;
-    questionId?: string;
+    // questionId?: string;
 }
 
 export interface Question {
-    id?: string;
+    id: string;
     label: string;
     answers: Answer[];
-    quizId?: string;
+    // quizId?: string;
 }

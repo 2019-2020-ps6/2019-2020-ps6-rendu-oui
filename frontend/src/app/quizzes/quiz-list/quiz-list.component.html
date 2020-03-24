@@ -1,11 +1,9 @@
 <span id="accueil"> Accueil </span>
 
-<button class="button-card" id="creation">
-  <a routerLink="/quiz-form" id="router-creation">Créer un nouveau quiz</a>
-</button>
+<button type="submit" class="button-card" routerLink="/edit-quiz" id="creation">Créer un nouveau quiz</button>
 
 <br>
-<div class="quiz-list">
+<div class="quiz-list" *ngIf="quizList">
   <div class="quiz" *ngFor="let quiz of quizList">
     <!--Inputs & Output allow communication between parent & child components.-->
     <!--More information: https://angular.io/guide/component-interaction-->
@@ -13,8 +11,5 @@
   </div>
 </div>
 <nav>
-  <a routerLink="/user-list" id="users">Voir la liste des utilisateurs</a>
+  <button type="submit" class="button-card" routerLink="/edit-quiz" id="users">Voir la liste des utilisateurs</button>
 </nav>
-
-
-
