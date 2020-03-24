@@ -42,13 +42,13 @@ export class QuizService {
     this.http.get<Quiz[]>(this.url).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
+      console.log('Quiz touché dernièrement :', this.quizzes[this.quizzes.length - 1]);
     });
   }
 
   addQuiz(quiz: Quiz) {
     this.http.post<Quiz>(this.url, quiz, this.httpOptions).subscribe(() => {
       this.setQuizzesFromUrl();
-      console.log('Quiz ajouté :', quiz);
     });
   }
 
@@ -60,6 +60,11 @@ export class QuizService {
   getQuiz(id: number): Observable<Quiz> {
     const urlWithId = this.url + '/' + id;
     return this.http.get<Quiz>(urlWithId);
+  }
+
+  getQuestion(quizId: number, id: number): Observable<Question> {
+    const urlWithId = this.url + '/' + quizId + this.questionsPath + '/' + id;
+    return this.http.get<Question>(urlWithId);
   }
 
   addQuestion(question: Question, quiz: Quiz) {

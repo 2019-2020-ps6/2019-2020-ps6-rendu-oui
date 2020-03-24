@@ -3,7 +3,7 @@
 </button>
 
 <br>
-<div class="quiz-list">
+<div class="quiz-list" *ngIf="quizList">
   <div class="quiz" *ngFor="let quiz of quizList">
     <!--Inputs & Output allow communication between parent & child components.-->
     <!--More information: https://angular.io/guide/component-interaction-->
@@ -13,6 +13,3 @@
 <nav>
   <a routerLink="/user-list">Voir la liste des utilisateurs</a>
 </nav>
-
-
-
