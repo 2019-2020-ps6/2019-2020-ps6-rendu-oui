@@ -5,7 +5,7 @@
     <div *ngFor="let answer of question.answers, let i = index">
       <div *ngIf="quiz && quiz.questions.length > quiz.questions.indexOf(question)+1; then classic else lastQuestion"></div>
       <ng-template #classic>
-        <button class="button-card" routerLink="../{{quiz.questions[quiz.questions.indexOf(question)+1].id}}" (click)="checkAnswer(answer.isCorrect)">{{i+1}}. {{answer.value}}</button>
+        <button class="button-card" routerLink="../{{quiz.questions[quiz.questions.indexOf(question)+1].id}}" (click)="checkAnswer(answer.isCorrect); wait(); clearTimeout()">{{i+1}}. {{answer.value}}</button>
       </ng-template>
       <ng-template #lastQuestion> <!-- Retour à la liste des quiz après avoir répondu -->
         <button class="button-card" routerLink="../../../../quiz-list">{{i+1}}. {{answer.value}}</button>

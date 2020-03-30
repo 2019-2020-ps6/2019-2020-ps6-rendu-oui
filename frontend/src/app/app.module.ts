@@ -26,7 +26,8 @@ import { UserComponent         } from './users/user/user.component';
 import { UserListComponent     } from './users/user-list/user-list.component';
 import { UserFormComponent     } from './users/user-form/user-form.component';
 import { EditUserComponent     } from './users/edit-user/edit-user.component';
-import {VariablesGlobales} from './questions/variablesGlobales';
+
+import { VariablesGlobales } from './questions/variablesGlobales';
 
 @NgModule({
   declarations: [ // Déclaration des composants

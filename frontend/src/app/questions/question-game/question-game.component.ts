@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
 
 import { timer } from 'rxjs';
-import { timeout } from 'rxjs/operators';
 
 import { Theme       } from '../../../models/theme.model';
 import { Quiz        } from '../../../models/quiz.model';
@@ -57,7 +55,7 @@ export class QuestionGameComponent implements OnInit {
   }
 
   wait(): void {
-      timer(2000).subscribe(x => {location.reload(); });
+      timer(2000).subscribe(x => location.reload());
   }
 
   clearTimeout(): void {
