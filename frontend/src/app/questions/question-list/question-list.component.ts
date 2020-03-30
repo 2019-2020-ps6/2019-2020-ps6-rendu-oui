@@ -1,7 +1,8 @@
-import {Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { Question } from '../../../models/question.model';
-import { Quiz } from '../../../models/quiz.model';
+import { Quiz        } from '../../../models/quiz.model';
+import { Question    } from '../../../models/question.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
@@ -14,10 +15,11 @@ export class QuestionListComponent {
   @Input()
   public quiz: Quiz;
 
-  constructor(public quizService: QuizService) {
+  constructor( private route: ActivatedRoute, private quizService: QuizService ) {
   }
 
   deleteQuestion(question: Question) {
-    this.quizService.deleteQuestion(question, this.quiz);
+    const themeId = +this.route.snapshot.paramMap.get('idTheme');
+    this.quizService.deleteQuestion(question, this.quiz, String(themeId));
   }
 }

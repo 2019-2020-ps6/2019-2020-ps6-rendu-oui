@@ -37,12 +37,8 @@
       </ng-template>
       <ng-template #uncorrectCreation>
         <div *ngIf="nbAnswersCorrect === 0; then nbNullAnswersCorrect else nbNullAnswersUncorrect"></div>
-        <ng-template #nbNullAnswersCorrect>
-          Veuillez mettre au moins une réponse correcte
-        </ng-template>
-        <ng-template #nbNullAnswersUncorrect>
-          Veuillez mettre au moins réponse incorrecte
-        </ng-template>
+        <ng-template #nbNullAnswersCorrect>Veuillez mettre au moins une réponse correcte</ng-template>
+        <ng-template #nbNullAnswersUncorrect>Veuillez mettre au moins réponse incorrecte</ng-template>
       </ng-template>
     </ng-template>
     <ng-template #lengthUncorrect>

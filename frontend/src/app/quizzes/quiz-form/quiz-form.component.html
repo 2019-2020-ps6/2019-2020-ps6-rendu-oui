@@ -7,18 +7,10 @@
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
     </label>
     <br>
-    <br>
-    <label for="theme">
-      Choisir un thème existant  : <br>
-      <select name="theme-field" id="theme" [formControlName]="'theme'">
-        <option *ngFor="let currentTheme of THEME_LIST" [value] = currentTheme> {{currentTheme}} </option>
-      </select>
-    </label>
-    <br>
-    <br>
-    <br>
-    <button type="submit" class="button-card" routerLink="/quiz-list" id="creer" (click)="addQuiz()">Créer</button>
+    <div *ngIf="theme">
+      <button class="button-card" routerLink="../quiz-list" id="creer" (click)="addQuiz()">Créer</button>
+    </div>
   </form>
 </div>
 
-<button type="submit" class="button-card" routerLink="/quiz-list" id="quizzes">Retour à la liste des quiz</button>
+<button class="button-card" routerLink="../quiz-list" id="quizzes">Retour à la liste des quiz</button>

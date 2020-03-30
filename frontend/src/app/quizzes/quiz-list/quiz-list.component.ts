@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
+import { Theme } from '../../../models/theme.model';
 
 @Component({
   selector: 'app-quiz-list',
@@ -9,19 +12,22 @@ import { Quiz } from '../../../models/quiz.model';
 })
 export class QuizListComponent implements OnInit {
 
-  public quizList: Quiz[];
+  public theme: Theme;
 
-  constructor( public quizService: QuizService ) {
-    this.quizService.quizzes$.subscribe((quizzes) => {
-      this.quizList = quizzes;
-      console.log('Liste des quiz :', this.quizList);
-    });
+  constructor( private route: ActivatedRoute, private quizService: QuizService ) {
+    this.quizService.themeSelected$.subscribe((theme) => this.theme = theme);
   }
 
   ngOnInit() {
+    this.getTheme();
+  }
+
+  getTheme(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.quizService.setSelectedTheme(String(id));
   }
 
   deleteQuiz(quiz: Quiz) {
-    this.quizService.deleteQuiz(quiz);
+    this.quizService.deleteQuiz(quiz, this.theme);
   }
 }

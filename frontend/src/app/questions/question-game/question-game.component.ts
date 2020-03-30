@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Quiz } from '../../../models/quiz.model';
-import { Question } from '../../../models/question.model';
+import { Quiz        } from '../../../models/quiz.model';
+import { Question    } from '../../../models/question.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
@@ -19,9 +19,9 @@ export class QuestionGameComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getQuiz();
+    this.getQuiz();
     // this.getQuestion();
-    this.init();
+    // this.init();
   }
 
   init(): void {
@@ -29,32 +29,35 @@ export class QuestionGameComponent implements OnInit {
      * Method uncorrect : there is not any subscribe on the question
      * => the page needs to be refresh each time that we answer by clicking
      */
+    const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const idQuiz = +this.route.snapshot.paramMap.get('idQuiz');
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log('Quiz id : ', idQuiz);
-    this.quizService.getQuiz(idQuiz).subscribe((quiz) => {
+    this.quizService.getQuiz(idTheme, idQuiz).subscribe((quiz) => {
       this.quiz = quiz;
+      console.log('Quiz lancé :', this.quiz);
       const index = this.quiz.questions.findIndex((q) => Number(q.id) === id);
       this.question = this.quiz.questions[index];
-      console.log('Quiz lancé :', this.quiz);
       console.log('Question demandée :', this.question);
     });
   }
 
   getQuiz(): void {
+    const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const idQuiz = +this.route.snapshot.paramMap.get('idQuiz');
     console.log('Quiz id : ', idQuiz);
-    this.quizService.getQuiz(idQuiz).subscribe((quiz) => {
+    this.quizService.getQuiz(idTheme, idQuiz).subscribe((quiz) => {
       this.quiz = quiz;
       console.log('Quiz lancé :', this.quiz);
+      this.getQuestion();
     });
   }
 
   getQuestion(): void {
+    const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const idQuiz = +this.route.snapshot.paramMap.get('idQuiz');
     const id = +this.route.snapshot.paramMap.get('id');
     console.log('Question id : ', id);
-    this.quizService.getQuestion(idQuiz, id).subscribe((question) => {
+    this.quizService.getQuestion(idTheme, idQuiz, id).subscribe((question) => {
       this.question = question;
       console.log('Question demandée :', this.question);
     });

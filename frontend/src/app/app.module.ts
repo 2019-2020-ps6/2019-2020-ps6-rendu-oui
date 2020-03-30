@@ -2,10 +2,15 @@ import { NgModule            } from '@angular/core';
 import { BrowserModule       } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule    } from '@angular/common/http';
+
 import { AppRoutingModule    } from './app.routing.module';
 
 import { AppComponent          } from './app.component';
 import { HeaderComponent       } from './header/header.component';
+
+import { ThemeComponent        } from './themes/theme/theme.component';
+import { ThemeListComponent    } from './themes/theme-list/theme-list.component';
+import { ThemeFormComponent    } from './themes/theme-form/theme-form.component';
 
 import { QuizComponent         } from './quizzes/quiz/quiz.component';
 import { QuizListComponent     } from './quizzes/quiz-list/quiz-list.component';
@@ -26,6 +31,10 @@ import { EditUserComponent     } from './users/edit-user/edit-user.component';
   declarations: [ // Déclaration des composants
     AppComponent,
     HeaderComponent,
+
+    ThemeComponent,
+    ThemeListComponent,
+    ThemeFormComponent,
 
     QuizComponent,
     QuizListComponent,

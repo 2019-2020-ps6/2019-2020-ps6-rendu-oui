@@ -1,17 +1,21 @@
 const { Router } = require('express')
 
-const { Answer, Quiz, Question } = require('../../../models')
-const manageAllErrors = require('../../../utils/routes/error-management')
+const { Answer, Quiz, Question } = require('../../../../models')
+const { filterQuestionsFromQuiz, getQuestionFromQuiz } = require('./manager')
+
+const manageAllErrors = require('../../../../utils/routes/error-management')
+
 const AnswersRouter = require('./answers')
-const { filterQuestionsFromQuizz, getQuestionFromQuiz } = require('./manager')
 
 const router = new Router({ mergeParams: true })
+router.use('/:questionId/answers', AnswersRouter)
 
 router.get('/', (req, res) => {
   try {
     // Check if quizId exists, if not it will throw a NotFoundError
+    console.log('Params get (index question) :', req.params)
     Quiz.getById(req.params.quizId)
-    res.status(200).json(filterQuestionsFromQuizz(req.params.quizId))
+    res.status(200).json(filterQuestionsFromQuiz(req.params.quizId))
   } catch (err) {
     manageAllErrors(res, err)
   }
@@ -19,6 +23,7 @@ router.get('/', (req, res) => {
 
 router.get('/:questionId', (req, res) => {
   try {
+    console.log('Params get with id (index question) :', req.params)
     const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
     res.status(200).json(question)
   } catch (err) {
@@ -29,6 +34,7 @@ router.get('/:questionId', (req, res) => {
 router.post('/', (req, res) => {
   try {
     // Check if quizId exists, if not it will throw a NotFoundError
+    console.log('Params post (index question) :', req.params)
     Quiz.getById(req.params.quizId)
     const quizId = parseInt(req.params.quizId, 10)
     let question = Question.create({ label: req.body.label, quizId })
@@ -63,7 +69,5 @@ router.delete('/:questionId', (req, res) => {
     manageAllErrors(res, err)
   }
 })
-
-router.use('/:questionId/answers', AnswersRouter)
 
 module.exports = router

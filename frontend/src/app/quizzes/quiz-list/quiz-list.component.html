@@ -1,15 +1,20 @@
-<span id="accueil"> Accueil </span>
+<div *ngIf="theme">
+  <span id="theme"> {{theme.name}} </span>
 
-<button type="submit" class="button-card" routerLink="/quiz-form" id="creation">Créer un nouveau quiz</button>
+  <button class="button-card" routerLink="../quiz-form" id="creation">Créer un nouveau quiz</button>
 
-<br>
-<div class="quiz-list" *ngIf="quizList">
-  <div class="quiz" *ngFor="let quiz of quizList">
-    <!--Inputs & Output allow communication between parent & child components.-->
-    <!--More information: https://angular.io/guide/component-interaction-->
-    <app-quiz [quiz]="quiz" (quizDeleted)="deleteQuiz($event)"></app-quiz>
+  <br>
+  <div class="quiz-list" *ngIf="theme.quizzes">
+    <div class="quiz" *ngFor="let quiz of theme.quizzes">
+      <!--Inputs & Output allow communication between parent & child components.-->
+      <!--More information: https://angular.io/guide/component-interaction-->
+      <app-quiz [quiz]="quiz" (quizDeleted)="deleteQuiz($event)"></app-quiz>
+    </div>
   </div>
 </div>
+<br>
+<br>
+<button class="button-card" routerLink="">Retour à la liste des thèmes</button>
 <nav>
   <button type="submit" class="button-card" routerLink="/user-list" id="users">Voir la liste des utilisateurs</button>
 </nav>
