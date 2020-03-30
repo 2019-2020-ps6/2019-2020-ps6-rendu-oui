@@ -20,12 +20,10 @@
 -->
     <p>Nombre de questions: {{quiz.questions.length}}</p>
 
-    <button class="button-card" *ngIf="quiz.questions.length > 0">
-        <a routerLink="/play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="play">Demarrer</a>
-    </button>
+    <div *ngIf="quiz.questions.length > 0">
+        <button class="button-card" routerLink="/play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="play">Demarrer</button>
+    </div>
     <button class="button-card" (click)="deleteQuiz()" id="supprimer">Supprimer</button>
-    <button class="button-card">
-        <a routerLink="/edit-quiz/{{quiz.id}}" id="editer">Editer</a>
-    </button>
+    <button class="button-card" routerLink="/edit-quiz/{{quiz.id}}" id="editer">Editer</button>
   </div>
 </div>
