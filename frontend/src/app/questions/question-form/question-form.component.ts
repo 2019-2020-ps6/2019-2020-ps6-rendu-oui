@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { Question } from '../../../models/question.model';
-import { Quiz } from '../../../models/quiz.model';
+import { Quiz        } from '../../../models/quiz.model';
+import { Question    } from '../../../models/question.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({

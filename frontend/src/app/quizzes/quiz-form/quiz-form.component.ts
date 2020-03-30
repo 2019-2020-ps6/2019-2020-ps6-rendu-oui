@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { Quiz        } from '../../../models/quiz.model';
 import { Theme       } from '../../../models/theme.model';
+import { Quiz        } from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
@@ -33,9 +33,7 @@ export class QuizFormComponent implements OnInit {
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
     const idTheme = +this.route.snapshot.paramMap.get('id');
-    this.quizService.getTheme(idTheme).subscribe((theme) => {
-      this.theme = theme;
-    });
+    this.quizService.getTheme(idTheme).subscribe((theme) => this.theme = theme);
   }
 
   ngOnInit() {

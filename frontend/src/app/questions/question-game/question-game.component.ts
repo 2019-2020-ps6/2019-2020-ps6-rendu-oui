@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { Theme       } from '../../../models/theme.model';
 import { Quiz        } from '../../../models/quiz.model';
 import { Question    } from '../../../models/question.model';
 import { QuizService } from '../../../services/quiz.service';
@@ -12,16 +13,17 @@ import { QuizService } from '../../../services/quiz.service';
 })
 export class QuestionGameComponent implements OnInit {
 
+  theme: Theme;
   quiz: Quiz;
   question: Question;
+
+  private answerIsCorrect: boolean;
 
   constructor( private route: ActivatedRoute, private quizService: QuizService ) {
   }
 
   ngOnInit() {
-    this.getQuiz();
-    // this.getQuestion();
-    // this.init();
+    this.init();
   }
 
   init(): void {
@@ -32,34 +34,16 @@ export class QuestionGameComponent implements OnInit {
     const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const idQuiz = +this.route.snapshot.paramMap.get('idQuiz');
     const id = +this.route.snapshot.paramMap.get('id');
-    this.quizService.getQuiz(idTheme, idQuiz).subscribe((quiz) => {
-      this.quiz = quiz;
-      console.log('Quiz lancé :', this.quiz);
-      const index = this.quiz.questions.findIndex((q) => Number(q.id) === id);
-      this.question = this.quiz.questions[index];
-      console.log('Question demandée :', this.question);
+    this.quizService.getTheme(idTheme).subscribe((theme) => {
+      this.theme = theme;
+      const indexQuiz = this.theme.quizzes.findIndex((q) => Number(q.id) === idQuiz);
+      this.quiz = this.theme.quizzes[indexQuiz];
+      const indexQuestion = this.quiz.questions.findIndex((q) => Number(q.id) === id);
+      this.question = this.quiz.questions[indexQuestion];
     });
   }
 
-  getQuiz(): void {
-    const idTheme = +this.route.snapshot.paramMap.get('idTheme');
-    const idQuiz = +this.route.snapshot.paramMap.get('idQuiz');
-    console.log('Quiz id : ', idQuiz);
-    this.quizService.getQuiz(idTheme, idQuiz).subscribe((quiz) => {
-      this.quiz = quiz;
-      console.log('Quiz lancé :', this.quiz);
-      this.getQuestion();
-    });
-  }
-
-  getQuestion(): void {
-    const idTheme = +this.route.snapshot.paramMap.get('idTheme');
-    const idQuiz = +this.route.snapshot.paramMap.get('idQuiz');
-    const id = +this.route.snapshot.paramMap.get('id');
-    console.log('Question id : ', id);
-    this.quizService.getQuestion(idTheme, idQuiz, id).subscribe((question) => {
-      this.question = question;
-      console.log('Question demandée :', this.question);
-    });
+  checkAnswer(isCorrect: boolean): void {
+    this.answerIsCorrect = isCorrect;
   }
 }

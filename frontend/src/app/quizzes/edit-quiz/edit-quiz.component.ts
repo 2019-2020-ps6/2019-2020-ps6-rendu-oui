@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Quiz } from '../../../models/quiz.model';
+import { Quiz        } from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
@@ -14,10 +14,7 @@ export class EditQuizComponent implements OnInit {
   public quiz: Quiz;
 
   constructor( private route: ActivatedRoute, private quizService: QuizService ) {
-    this.quizService.quizSelected$.subscribe((quiz) => {
-      this.quiz = quiz;
-      console.log('Quiz édité :', this.quiz);
-    });
+    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }
 
   ngOnInit() {

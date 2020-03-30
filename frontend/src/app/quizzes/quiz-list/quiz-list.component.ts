@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { Theme       } from '../../../models/theme.model';
+import { Quiz        } from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
-import { Quiz } from '../../../models/quiz.model';
-import { Theme } from '../../../models/theme.model';
 
 @Component({
   selector: 'app-quiz-list',

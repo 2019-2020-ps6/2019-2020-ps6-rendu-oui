@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+import { Theme       } from '../../../models/theme.model';
 import { QuizService } from '../../../services/quiz.service';
-import { Theme } from '../../../models/theme.model';
 
 @Component({
   selector: 'app-theme-form',

@@ -87,17 +87,12 @@ export class QuizService {
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.setSelectedTheme(theme.id));
   }
 
-  getQuiz(themeId: number, id: number): Observable<Quiz> {
-    const urlWithId = this.url + '/' + themeId + this.quizzesPath + '/' + id;
-    return this.http.get<Quiz>(urlWithId);
-  }
-
   setSelectedQuiz(themeId: string, quizId: string) {
-    const urlWithId = this.url + '/' + themeId + this.quizzesPath + '/' + quizId;
-    this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
-      this.quizSelected$.next(quiz);
-      console.log('Quiz sélectionné :', quiz);
-      this.setSelectedTheme(themeId);
+    const urlWithId = this.url + '/' + themeId;
+    this.http.get<Theme>(urlWithId).subscribe((theme) => {
+      const indexQuiz = theme.quizzes.findIndex((q) => Number(q.id) === Number(quizId));
+      this.quizSelected$.next(theme.quizzes[indexQuiz]);
+      console.log('Quiz sélectionné :', theme.quizzes[indexQuiz]);
     });
   }
 
@@ -116,10 +111,5 @@ export class QuizService {
   deleteQuestion(question: Question, quiz: Quiz, themeId: string) {
     const questionUrl = this.url + '/' + themeId + this.quizzesPath + '/' + quiz.id + this.questionsPath + '/' + question.id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(themeId, quiz.id));
-  }
-
-  getQuestion(themeId: number, quizId: number, id: number): Observable<Question> {
-    const urlWithId = this.url + '/' + themeId + this.quizzesPath + '/' + quizId + this.questionsPath + '/' + id;
-    return this.http.get<Question>(urlWithId);
   }
 }
