@@ -8,7 +8,7 @@ const { NotFoundError } = require('../../../../utils/errors/not-found-error')
  */
 
 /**
- * filterQuestionsFromQuizz.
+ * filterQuestionsFromQuiz.
  * This function filters among the questions to return only the question linked with the given quizId.
  * @param quizId
  */

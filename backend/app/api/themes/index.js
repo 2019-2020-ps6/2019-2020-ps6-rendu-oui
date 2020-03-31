@@ -6,7 +6,7 @@ const { buildTheme, buildThemes } = require('./manager')
 const QuizzesRouter = require('./quizzes')
 
 const router = new Router()
-router.use('/:themeId/quiz-list', QuizzesRouter)
+router.use('/:themeId/quizzes', QuizzesRouter)
 
 router.get('/', (req, res) => {
   try {
