@@ -7,7 +7,6 @@ import { Question    } from '../models/question.model';
 
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import { HttpClient } from '@angular/common/http';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +36,7 @@ export class QuizService {
   private questionsPath = '/questions';
   private httpOptions = httpOptionsBase;
 
-  constructor( private http: HttpClient , private router: Router) {
+  constructor( private http: HttpClient ) {
     this.setThemesFromUrl();
   }
 
@@ -80,8 +79,7 @@ export class QuizService {
 
   addQuiz(quiz: Quiz, theme: Theme) {
     const quizUrl = this.url + '/' + theme.id + this.quizzesPath;
-    // tslint:disable-next-line:max-line-length
-    this.http.post<Quiz>(quizUrl, quiz, this.httpOptions).subscribe((quizCreated) => {this.setSelectedTheme(theme.id); this.router.navigate(['./theme-list/' + theme.id + '/edit-quiz/' + quizCreated.id]); });
+    this.http.post<Quiz>(quizUrl, quiz, this.httpOptions).subscribe(() => this.setSelectedTheme(theme.id));
   }
 
   deleteQuiz(quiz: Quiz, theme: Theme) {
