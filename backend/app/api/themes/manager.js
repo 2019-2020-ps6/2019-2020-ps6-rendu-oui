@@ -6,7 +6,7 @@ const { filterAnswersFromQuestion } = require('./quizzes/questions/answers/manag
 
 /**
  * Function buildTheme.
- * This function aggregates the quizzes and questions from the database to build a theme with all the data needed by the clients.
+ * This function aggregates the quiz and questions from the database to build a theme with all the data needed by the clients.
  * @param themeId
  */
 const buildTheme = (themeId) => {
@@ -25,7 +25,7 @@ const buildTheme = (themeId) => {
 
 /**
  * Function buildThemes.
- * This function aggregates the quizzes and questions from the database to build entire themes.
+ * This function aggregates the quiz and questions from the database to build entire themes.
  */
 const buildThemes = () => {
   const themes = Theme.get()

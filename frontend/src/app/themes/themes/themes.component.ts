@@ -4,11 +4,11 @@ import { Theme       } from '../../../models/theme.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
-  selector: 'app-theme-list',
-  templateUrl: './theme-list.component.html',
-  styleUrls: ['./theme-list.component.scss']
+  selector: 'app-themes',
+  templateUrl: './themes.component.html',
+  styleUrls: ['./themes.component.scss']
 })
-export class ThemeListComponent implements OnInit {
+export class ThemesComponent implements OnInit {
 
   public themeList: Theme[];
 

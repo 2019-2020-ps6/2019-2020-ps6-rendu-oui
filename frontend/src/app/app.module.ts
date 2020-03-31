@@ -9,13 +9,13 @@ import { AppComponent          } from './app.component';
 import { HeaderComponent       } from './header/header.component';
 
 import { ThemeComponent        } from './themes/theme/theme.component';
-import { ThemeListComponent    } from './themes/theme-list/theme-list.component';
+import { ThemesComponent    } from './themes/themes/themes.component';
 import { ThemeFormComponent    } from './themes/theme-form/theme-form.component';
 
-import { QuizComponent         } from './quizzes/quiz/quiz.component';
-import { QuizListComponent     } from './quizzes/quiz-list/quiz-list.component';
-import { QuizFormComponent     } from './quizzes/quiz-form/quiz-form.component';
-import { EditQuizComponent     } from './quizzes/edit-quiz/edit-quiz.component';
+import { QuizComponent         } from './quiz/quiz/quiz.component';
+import { QuizzesComponent     } from './quiz/quizzes/quizzes.component';
+import { QuizFormComponent     } from './quiz/quiz-form/quiz-form.component';
+import { EditQuizComponent     } from './quiz/edit-quiz/edit-quiz.component';
 
 import { QuestionComponent     } from './questions/question/question.component';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
@@ -35,11 +35,11 @@ import { VariablesGlobales } from './questions/variablesGlobales';
     HeaderComponent,
 
     ThemeComponent,
-    ThemeListComponent,
+    ThemesComponent,
     ThemeFormComponent,
 
     QuizComponent,
-    QuizListComponent,
+    QuizzesComponent,
     QuizFormComponent,
     EditQuizComponent,
 

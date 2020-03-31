@@ -6,11 +6,11 @@ import { Quiz        } from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
-  selector: 'app-quiz-list',
-  templateUrl: './quiz-list.component.html',
-  styleUrls: ['./quiz-list.component.scss']
+  selector: 'app-quizzes',
+  templateUrl: './quizzes.component.html',
+  styleUrls: ['./quizzes.component.scss']
 })
-export class QuizListComponent implements OnInit {
+export class QuizzesComponent implements OnInit {
 
   public theme: Theme;
 

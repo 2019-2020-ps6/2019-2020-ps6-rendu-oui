@@ -4,7 +4,7 @@ const { NotFoundError } = require('../../../utils/errors/not-found-error')
 
 /**
  * filterQuizzesFromTheme.
- * This function filters among the quizzes to return only the quiz linked with the given themeId.
+ * This function filters among the quiz to return only the quiz linked with the given themeId.
  * @param themeId
  */
 const filterQuizzesFromTheme = (themeId) => {

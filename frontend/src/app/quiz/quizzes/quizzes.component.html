@@ -4,7 +4,7 @@
   <button class="button-card" routerLink="../quiz-form" id="creation">Créer un nouveau quiz</button>
 
   <br>
-  <div class="quiz-list" *ngIf="theme.quizzes">
+  <div class="quizzes" *ngIf="theme.quizzes">
     <div id="emptyQuiz" *ngIf="theme.quizzes.length ===0">
       <span id="emptyQuizSpan"> <strong>Aucun quiz n'a été créé </strong> </span>
     </div>
