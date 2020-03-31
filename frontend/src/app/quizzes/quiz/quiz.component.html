@@ -1,31 +1,13 @@
 <div class="card">
   <div *ngIf="quiz">
-    <h2>
-      Nom: {{quiz.name}}
-      <br>
-      <span> Thème: {{quiz.theme}} </span>
-    </h2>
+    <h2>Nom: {{quiz.name}}</h2>
 
-    <!-- Logos --><!--
-    <div *ngIf="quiz.theme === 'Actor'">
-      <i class="fas fa-smile"></i>
-    </div>
-    <div *ngIf="quiz.theme === 'Sport'">
-      <i class="fas fa-skiing-nordic"></i>
-    </div>
-
-    <div *ngIf="quiz.creationDate">
-      <p>Crée le {{quiz.creationDate | date: 'EEEE d MMMM y'}}</p>
-    </div>
--->
     <p>Nombre de questions: {{quiz.questions.length}}</p>
 
-    <button class="button-card" *ngIf="quiz.questions.length > 0">
-        <a routerLink="/play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="play">Demarrer</a>
-    </button>
+    <div *ngIf="quiz.questions.length > 0">
+        <button class="button-card" routerLink="../play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="play">Demarrer</button>
+    </div>
     <button class="button-card" (click)="deleteQuiz()" id="supprimer">Supprimer</button>
-    <button class="button-card">
-        <a routerLink="/edit-quiz/{{quiz.id}}" id="editer">Editer</a>
-    </button>
+    <button class="button-card" routerLink="../edit-quiz/{{quiz.id}}" id="editer">Editer</button>
   </div>
 </div>

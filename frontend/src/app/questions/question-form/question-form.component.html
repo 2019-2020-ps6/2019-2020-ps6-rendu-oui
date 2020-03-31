@@ -6,7 +6,18 @@
       <input class="input-custom" type="text" id="label" [formControlName]="'label'">
     </label>
 
-    <br>
+    <div class="answer" formArrayName="answers">
+      <div *ngFor="let address of answers.controls; let i = index">
+        <div class="answer-form" [formGroupName]="i">
+          <label>
+            Réponse <input type="text" [formControlName]="'value'">
+            <br>
+            Réponse correcte ? <input type="checkbox" [formControlName]="'isCorrect'" (ngModelChange)="checkAnswer()">
+          </label>
+        </div>
+      </div>
+    </div>
+
     <div *ngIf="answers.controls.length < 4; then add else limit"></div>
     <ng-template #add>
       <button class="button-card" (click)="addAnswer()">
@@ -14,22 +25,24 @@
       </button>
     </ng-template>
     <ng-template #limit>
+      Limite de réponses atteintes !
     </ng-template>
 
-    <div class="answer" formArrayName="answers">
-      <div *ngFor="let address of answers.controls; let i = index">
-        <div class="answer-form" [formGroupName]="i">
-          <label>
-            Réponse <input type="text" [formControlName]="'value'">
-            <br>
-            Réponse correcte ? <input type="checkbox" [formControlName]="'isCorrect'">
-          </label>
-        </div>
-      </div>
-    </div>
-
     <br>
-    <button class="button-card" (click)="addQuestion()">
-      <i class="fas fa-check"></i> Créer la question</button>
+    <div *ngIf="answers.controls.length >= 2; then lengthCorrect else lengthUncorrect"></div>
+    <ng-template #lengthCorrect>
+      <div *ngIf="nbAnswersCorrect !== 0 && nbAnswersUncorrect !== 0; then create else uncorrectCreation"></div>
+      <ng-template #create>
+        <button class="button-card" (click)="addQuestion()"><i class="fas fa-check"></i>Créer la question</button>
+      </ng-template>
+      <ng-template #uncorrectCreation>
+        <div *ngIf="nbAnswersCorrect === 0; then nbNullAnswersCorrect else nbNullAnswersUncorrect"></div>
+        <ng-template #nbNullAnswersCorrect>Veuillez mettre au moins une réponse correcte</ng-template>
+        <ng-template #nbNullAnswersUncorrect>Veuillez mettre au moins réponse incorrecte</ng-template>
+      </ng-template>
+    </ng-template>
+    <ng-template #lengthUncorrect>
+      Veuillez créer au moins 2 réponses
+    </ng-template>
   </form>
 </div>

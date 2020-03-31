@@ -1,9 +1,9 @@
 <div class="edit-quiz">
-  <ng-container *ngIf="quiz" id="edit">
+  <div *ngIf="quiz" id="edit">
     <h2 id="nom">{{quiz.name}}</h2>
     <app-question-form [quiz]="quiz" id="question-form"></app-question-form>
     <app-question-list [quiz]="quiz" id="questions"></app-question-list>
-  </ng-container>
-  <br>
-  <button type="submit" class="button-card" routerLink="/quiz-list" id="quizzes">Retour à la liste des quiz</button>
+    <br>
+    <button class="button-card" routerLink="../../quiz-list" id="quizzes">Retour à la liste des quiz</button>
+  </div>
 </div>

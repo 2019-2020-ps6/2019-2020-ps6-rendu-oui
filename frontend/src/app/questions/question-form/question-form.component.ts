@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
-import { Question } from '../../../models/question.model';
-import { Quiz } from '../../../models/quiz.model';
+import { Quiz        } from '../../../models/quiz.model';
+import { Question    } from '../../../models/question.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
@@ -17,8 +18,13 @@ export class QuestionFormComponent implements OnInit {
   @Input()
   public quiz: Quiz;
 
-  constructor( public formBuilder: FormBuilder, public quizService: QuizService ) {
+  private nbAnswersCorrect: number;
+  private nbAnswersUncorrect: number;
+
+  constructor( private route: ActivatedRoute, public formBuilder: FormBuilder, private quizService: QuizService ) {
     this.initializeQuestionForm();
+    this.nbAnswersCorrect = 0;
+    this.nbAnswersUncorrect = 0;
   }
 
   ngOnInit() {
@@ -44,12 +50,27 @@ export class QuestionFormComponent implements OnInit {
 
   addAnswer() {
     this.answers.push(this.createAnswer());
+    this.checkAnswer();
   }
 
   addQuestion() {
+    const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const questionToAdd = this.questionForm.getRawValue() as Question;
-    this.quizService.addQuestion(questionToAdd, this.quiz);
+    this.quizService.addQuestion(questionToAdd, this.quiz, String(idTheme));
 
     this.initializeQuestionForm(); // Remise à 'zéro' des champs de saisie
+  }
+
+  checkAnswer() {
+    this.nbAnswersCorrect = 0;
+    this.nbAnswersUncorrect = 0;
+
+    this.answers.getRawValue().forEach((answer) => {
+      if (answer.isCorrect) {
+        this.nbAnswersCorrect++;
+      } else {
+        this.nbAnswersUncorrect++;
+      }
+    });
   }
 }

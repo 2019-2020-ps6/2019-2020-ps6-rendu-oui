@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { ThemeListComponent } from './themes/theme-list/theme-list.component';
+import { ThemeFormComponent } from './themes/theme-form/theme-form.component';
+
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
@@ -11,13 +14,16 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/quiz-list', pathMatch: 'full'},
-  {path: 'quiz-list', component: QuizListComponent},
+  {path: '', redirectTo: '/theme-list', pathMatch: 'full'},
+  {path: 'theme-list', component: ThemeListComponent},
+  {path: 'theme-form', component: ThemeFormComponent},
 
-  {path: 'edit-quiz/:id', component: EditQuizComponent},
-  {path: 'edit-quiz/:id', component: QuizFormComponent},
-  {path: 'quiz-form', component: QuizFormComponent},
-  {path: 'play-quiz/:idQuiz/question-game/:id', component: QuestionGameComponent},
+  {path: 'theme-list/:id/quiz-list', component: QuizListComponent},
+  {path: 'theme-list/:id/quiz-form', component: QuizFormComponent},
+
+  {path: 'theme-list/:idTheme/edit-quiz/:id', component: EditQuizComponent},
+
+  {path: 'theme-list/:idTheme/play-quiz/:idQuiz/question-game/:id', component: QuestionGameComponent},
 
   {path: 'user-list', component: UserListComponent},
   {path: 'edit-user/:id', component: EditUserComponent}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Quiz } from '../../../models/quiz.model';
+import { Quiz        } from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
@@ -19,11 +19,11 @@ export class EditQuizComponent implements OnInit {
 
   ngOnInit() {
     this.getQuiz();
-    console.log('Quiz édité :', this.quiz);
   }
 
   getQuiz(): void {
+    const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const id = +this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(String(id));
+    this.quizService.setSelectedQuiz(String(idTheme), String(id));
   }
 }
