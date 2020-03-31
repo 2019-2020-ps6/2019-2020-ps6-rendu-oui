@@ -87,6 +87,7 @@ export class QuizService {
   deleteQuiz(quiz: Quiz, theme: Theme) {
     const urlWithId = this.url + '/' + theme.id + this.quizzesPath + '/' + quiz.id;
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.setSelectedTheme(theme.id));
+    location.reload();
   }
 
   setSelectedQuiz(themeId: string, quizId: string) {
