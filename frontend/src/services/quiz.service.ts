@@ -53,9 +53,7 @@ export class QuizService {
   }
 
   addTheme(theme: Theme) {
-    this.http.post<Theme>(this.url, theme, this.httpOptions).subscribe((themeCreate) => {
-      this.setThemesFromUrl();
-    });
+    this.http.post<Theme>(this.url, theme, this.httpOptions).subscribe((themeCreate) => this.setThemesFromUrl());
   }
 
   deleteTheme(theme: Theme) {
