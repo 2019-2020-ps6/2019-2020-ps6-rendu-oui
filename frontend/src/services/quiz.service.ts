@@ -32,8 +32,8 @@ export class QuizService {
   public themeSelected$: Subject<Theme> = new Subject<Theme>();
   public quizSelected$: Subject<Quiz> = new Subject<Quiz>();
 
-  private url = serverUrl + '/theme-list';
-  private quizzesPath = '/quiz-list';
+  private url = serverUrl + '/themes';
+  private quizzesPath = '/quizzes';
   private questionsPath = '/questions';
   private httpOptions = httpOptionsBase;
 
@@ -55,7 +55,7 @@ export class QuizService {
   addTheme(theme: Theme) {
     this.http.post<Theme>(this.url, theme, this.httpOptions).subscribe((themeCreate) => {
       this.setThemesFromUrl();
-      this.router.navigate(['./theme-list/' + themeCreate.id + '/quiz-form']);
+      // this.router.navigate(['./themes/' + themeCreate.id + '/quiz-form']);
     });
   }
 
@@ -85,7 +85,7 @@ export class QuizService {
     const quizUrl = this.url + '/' + theme.id + this.quizzesPath;
     this.http.post<Quiz>(quizUrl, quiz, this.httpOptions).subscribe((quizCreated) => {
       this.setSelectedTheme(theme.id);
-      this.router.navigate(['./theme-list/' + theme.id + '/edit-quiz/' + quizCreated.id]);
+      this.router.navigate(['./themes/' + theme.id + '/edit-quiz/' + quizCreated.id]);
     });
   }
 
