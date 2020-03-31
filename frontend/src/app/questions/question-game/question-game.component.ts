@@ -25,7 +25,7 @@ export class QuestionGameComponent implements OnInit {
 
   constructor( private route: ActivatedRoute, private quizService: QuizService, private param: VariablesGlobales ) {
     this.param.myVar = setTimeout(function toHome() {
-      location.replace('./quiz-list');
+      location.replace('./theme-list');
     }, 30000 );
   }
 
@@ -56,6 +56,10 @@ export class QuestionGameComponent implements OnInit {
 
   wait(): void {
       timer(2000).subscribe(x => location.reload());
+  }
+
+  waitToHome(): void {
+    timer(2000).subscribe(x => location.replace('./theme-list'));
   }
 
   clearTimeout(): void {
