@@ -1,9 +1,16 @@
-<span id="accueil"> Accueil </span>
+<div id="topMenu">
+  <p id="topMenuStyle">
+  <span><strong> Bienvenue </strong></span>
+  </p>
+</div>
 
 <button class="button-card" routerLink="/theme-form" id="creation">Créer un nouveau thème</button>
 
 <br>
 <div class="theme-list" *ngIf="themeList">
+  <div id="emptyTheme" *ngIf="themeList.length === 0">
+    <span id="emptyThemeSpan" > <strong> Aucun thème n'a été créé  </strong></span>
+  </div>
   <div class="theme" *ngFor="let theme of themeList">
     <app-theme [theme]="theme" (themeDeleted)="deleteTheme($event)"></app-theme>
   </div>

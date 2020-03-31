@@ -55,7 +55,6 @@ export class QuizService {
   addTheme(theme: Theme) {
     this.http.post<Theme>(this.url, theme, this.httpOptions).subscribe((themeCreate) => {
       this.setThemesFromUrl();
-      this.router.navigate(['./theme-list/' + themeCreate.id + '/quiz-form']);
     });
   }
 

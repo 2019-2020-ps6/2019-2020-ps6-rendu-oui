@@ -1,10 +1,13 @@
 <div *ngIf="theme">
-  <span id="theme"> {{theme.name}} </span>
+  <span id="theme"> <strong> Thème sélectionné : {{theme.name}} </strong> </span>
 
   <button class="button-card" routerLink="../quiz-form" id="creation">Créer un nouveau quiz</button>
 
   <br>
   <div class="quiz-list" *ngIf="theme.quizzes">
+    <div id="emptyQuiz" *ngIf="theme.quizzes.length ===0">
+      <span id="emptyQuizSpan"> <strong>Aucun quiz n'a été créé </strong> </span>
+    </div>
     <div class="quiz" *ngFor="let quiz of theme.quizzes">
       <!--Inputs & Output allow communication between parent & child components.-->
       <!--More information: https://angular.io/guide/component-interaction-->
