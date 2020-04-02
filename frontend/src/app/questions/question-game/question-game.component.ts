@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { timer } from 'rxjs';
 
@@ -23,7 +23,7 @@ export class QuestionGameComponent implements OnInit {
 
   private answerIsCorrect: boolean;
 
-  constructor( private route: ActivatedRoute, private quizService: QuizService, private param: VariablesGlobales ) {
+  constructor( private route: ActivatedRoute, private quizService: QuizService, private param: VariablesGlobales, private router: Router) {
     this.param.myVar = setTimeout(function toHome() {
       location.replace('./theme-list');
     }, 30000 );
@@ -50,16 +50,29 @@ export class QuestionGameComponent implements OnInit {
     });
   }
 
-  checkAnswer(isCorrect: boolean): void {
+  checkAnswer(isCorrect: boolean, isLast: boolean): void {
     this.answerIsCorrect = isCorrect;
+    if (!isLast) {
+      if (this.answerIsCorrect) {
+        this.wait(2000);
+        // tslint:disable-next-line:max-line-length
+        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.quiz.questions[this.quiz.questions.indexOf(this.question) + 1].id]);
+      } else {
+        this.wait(500);
+        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]);
+      }
+   } else {
+      if (this.answerIsCorrect) {
+        timer(2000).subscribe(() => this.router.navigate(['./theme-list']));
+      } else {
+        this.wait(500);
+        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]);
+      }
+    }
   }
 
-  wait(): void {
-      timer(2000).subscribe(x => location.reload());
-  }
-
-  waitToHome(): void {
-    timer(2000).subscribe(x => location.replace('./theme-list'));
+  wait(duree: number): void {
+      timer(duree).subscribe(x => location.reload());
   }
 
   clearTimeout(): void {
