@@ -5,7 +5,7 @@ import { timer } from 'rxjs';
 
 import { Theme       } from '../../../models/theme.model';
 import { Quiz        } from '../../../models/quiz.model';
-import { Question    } from '../../../models/question.model';
+import {Answer, Question} from '../../../models/question.model';
 import { QuizService } from '../../../services/quiz.service';
 
 import {VariablesGlobales} from '../variablesGlobales';
@@ -50,23 +50,22 @@ export class QuestionGameComponent implements OnInit {
     });
   }
 
-  checkAnswer(isCorrect: boolean, isLast: boolean): void {
-    this.answerIsCorrect = isCorrect;
-    if (!isLast) {
-      if (this.answerIsCorrect) {
+  checkAnswer(answer: Answer, isLast: boolean): void {
+    this.answerIsCorrect = answer.isCorrect;
+    if (!this.answerIsCorrect) {
+      // tslint:disable-next-line:max-line-length
+      timer(500).subscribe(() => {
+        // tslint:disable-next-line:max-line-length
+        this.quiz.questions[this.quiz.questions.indexOf(this.question)].answers.splice(this.quiz.questions[this.quiz.questions.indexOf(this.question)].answers.indexOf(answer), 1);
+        // tslint:disable-next-line:max-line-length
+        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]); });
+    } else {
+      if (!isLast) {
         this.wait(2000);
         // tslint:disable-next-line:max-line-length
         this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.quiz.questions[this.quiz.questions.indexOf(this.question) + 1].id]);
       } else {
-        this.wait(500);
-        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]);
-      }
-   } else {
-      if (this.answerIsCorrect) {
         timer(2000).subscribe(() => this.router.navigate(['./theme-list']));
-      } else {
-        this.wait(500);
-        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]);
       }
     }
   }
