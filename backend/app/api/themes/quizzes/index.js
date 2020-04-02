@@ -58,8 +58,7 @@ router.put('/:quizId', (req, res) => {
 
 router.delete('/:quizId', (req, res) => {
   try {
-    getQuizFromTheme(req.params.themeId, req.params.quizId)
-    Quiz.delete(req.params.quizId)
+    res.status(200).json(Quiz.delete(req.params.quizId))
   } catch (err) {
     res.status(500).json(err)
   }
