@@ -14,16 +14,16 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/theme-list', pathMatch: 'full'},
-  {path: 'theme-list', component: ThemeListComponent},
+  {path: '', redirectTo: '/themes', pathMatch: 'full'},
+  {path: 'themes', component: ThemeListComponent},
   {path: 'theme-form', component: ThemeFormComponent},
 
-  {path: 'theme-list/:id/quiz-list', component: QuizListComponent},
-  {path: 'theme-list/:id/quiz-form', component: QuizFormComponent},
+  {path: 'themes/:id/quizzes', component: QuizListComponent},
+  {path: 'themes/:id/quiz-form', component: QuizFormComponent},
 
-  {path: 'theme-list/:idTheme/edit-quiz/:id', component: EditQuizComponent},
+  {path: 'themes/:idTheme/edit-quiz/:id', component: EditQuizComponent},
 
-  {path: 'theme-list/:idTheme/play-quiz/:idQuiz/question-game/:id', component: QuestionGameComponent},
+  {path: 'themes/:idTheme/play-quiz/:idQuiz/question-game/:id', component: QuestionGameComponent},
 
   {path: 'user-list', component: UserListComponent},
   {path: 'edit-user/:id', component: EditUserComponent}
