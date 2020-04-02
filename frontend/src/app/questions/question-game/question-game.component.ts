@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { timer } from 'rxjs';
 
 import { Theme       } from '../../../models/theme.model';
 import { Quiz        } from '../../../models/quiz.model';
-import { Question    } from '../../../models/question.model';
+import {Answer, Question} from '../../../models/question.model';
 import { QuizService } from '../../../services/quiz.service';
 
 import {VariablesGlobales} from '../variablesGlobales';
@@ -23,7 +23,7 @@ export class QuestionGameComponent implements OnInit {
 
   private answerIsCorrect: boolean;
 
-  constructor( private route: ActivatedRoute, private quizService: QuizService, private param: VariablesGlobales ) {
+  constructor( private route: ActivatedRoute, private quizService: QuizService, private param: VariablesGlobales, private router: Router) {
     this.param.myVar = setTimeout(function toHome() {
       location.replace('./themes');
     }, 30000 );
@@ -50,17 +50,30 @@ export class QuestionGameComponent implements OnInit {
     });
   }
 
-  checkAnswer(isCorrect: boolean): void {
-    this.answerIsCorrect = isCorrect;
+  checkAnswer(answer: Answer, isLast: boolean): void {
+    this.answerIsCorrect = answer.isCorrect;
+    if (!this.answerIsCorrect) {
+      // tslint:disable-next-line:max-line-length
+      timer(500).subscribe(() => {
+        // tslint:disable-next-line:max-line-length
+        this.quiz.questions[this.quiz.questions.indexOf(this.question)].answers.splice(this.quiz.questions[this.quiz.questions.indexOf(this.question)].answers.indexOf(answer), 1);
+        // tslint:disable-next-line:max-line-length
+        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]); });
+    } else {
+      if (!isLast) {
+        this.wait(2000);
+        // tslint:disable-next-line:max-line-length
+        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.quiz.questions[this.quiz.questions.indexOf(this.question) + 1].id]);
+      } else {
+        timer(2000).subscribe(() => this.router.navigate(['./theme-list']));
+      }
+    }
   }
 
-  wait(): void {
-      timer(2000).subscribe(x => location.reload());
+  wait(duree: number): void {
+      timer(duree).subscribe(x => location.reload());
   }
 
-  waitToHome(): void {
-    timer(2000).subscribe(x => location.replace('./themes'));
-  }
 
   clearTimeout(): void {
       clearTimeout(this.param.myVar);
