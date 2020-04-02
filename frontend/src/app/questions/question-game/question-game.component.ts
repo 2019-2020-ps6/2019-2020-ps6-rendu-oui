@@ -58,17 +58,18 @@ export class QuestionGameComponent implements OnInit {
         // tslint:disable-next-line:max-line-length
         this.quiz.questions[this.quiz.questions.indexOf(this.question)].answers.splice(this.quiz.questions[this.quiz.questions.indexOf(this.question)].answers.indexOf(answer), 1);
         // tslint:disable-next-line:max-line-length
-        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]); });
+        this.router.navigate(['./themes/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.question.id]); });
     } else {
       if (!isLast) {
         this.wait(2000);
         // tslint:disable-next-line:max-line-length
-        this.router.navigate(['./theme-list/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.quiz.questions[this.quiz.questions.indexOf(this.question) + 1].id]);
+        this.router.navigate(['./themes/' + this.theme.id + '/play-quiz/' + this.quiz.id + '/question-game/' + this.quiz.questions[this.quiz.questions.indexOf(this.question) + 1].id]);
       } else {
-        timer(2000).subscribe(() => this.router.navigate(['./theme-list']));
+        timer(2000).subscribe(() => this.router.navigate(['./themes']));
       }
     }
   }
+
 
   wait(duree: number): void {
       timer(duree).subscribe(x => location.reload());
