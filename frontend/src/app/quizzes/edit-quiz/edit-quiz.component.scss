@@ -1,24 +1,35 @@
-.button-card{
-  position: relative;
-  font-size: 20px;
-  background: cornflowerblue;
+@import '../../../styles/card';
+
+#topHeader{
+  margin-top: 2%;
+  margin-left: 2%;
 }
 
 #nom{
   text-align: center;
 }
 
-#edit{
-  width:100%;
-}
-#question-form, #questions {
+
+#question-form{
   display: inline-block;
   vertical-align: top;
-}
-#question-form {
+  margin-left: 11%;
   width:40%;
 }
+
 
 #questions {
   width: 50%;
 }
+
+#edit{
+  margin-left: 25%;
+}
+
+#nom{
+  margin-left: 22%;
+  font-weight: bold;
+  font-size: 130%;
+}
+
+

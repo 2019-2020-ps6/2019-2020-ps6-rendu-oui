@@ -1,28 +1,24 @@
+@import '../../../styles/card.scss';
+
 .theme-list {
   display: flex;
   position: relative;
   top: 50px;
 }
 
-.button-card{
-  position: relative;
-  font-size: 20px;
-  background: cornflowerblue;
+
+
+#btnTheme{
+  left: 20%;
+  font-size: 65%;
 }
 
-#users{
-  position: relative;
-  top: 50px;
-}
+#btnUsers{
+  margin-top: 10%;
+  margin-left: 70%;
+  background: lightgrey;
+  font-size: 110%;
 
-#creation{
-  top: 10px;
-  left: 60%;
-}
-
-#users{
-  top: 100px;
-  left: 1%;
 }
 
 #router-creation{
@@ -48,9 +44,13 @@
 }
 
 #topMenuStyle{
-  margin-top:10px;
+  margin-left: 44%;
+  margin-top: 1%;
   font-size: 40px;
-  text-align:center;
+}
+
+#bienvenue{
+  font-weight: bold;
 }
 
 

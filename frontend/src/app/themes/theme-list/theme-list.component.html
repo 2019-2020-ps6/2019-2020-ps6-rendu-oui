@@ -1,10 +1,7 @@
-<div id="topMenu">
-  <p id="topMenuStyle">
-  <span><strong> Bienvenue </strong></span>
-  </p>
+<div id="topMenuStyle">
+  <span id="bienvenue">Bienvenue</span>
+  <button class="creation-button" routerLink="/theme-form" id="btnTheme">Créer un nouveau thème</button>
 </div>
-
-<button class="button-card" routerLink="/theme-form" id="creation">Créer un nouveau thème</button>
 
 <br>
 <div class="theme-list" *ngIf="themeList">
@@ -17,5 +14,5 @@
 </div>
 
 <nav>
-  <button type="submit" class="button-card" routerLink="/user-list" id="users">Voir la liste des utilisateurs</button>
+  <button type="submit" class="users-button" routerLink="/user-list" id="btnUsers">Voir la liste des utilisateurs</button>
 </nav>

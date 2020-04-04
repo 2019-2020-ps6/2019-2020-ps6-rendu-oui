@@ -26,7 +26,7 @@ export class QuestionGameComponent implements OnInit {
   constructor( private route: ActivatedRoute, private quizService: QuizService, private param: VariablesGlobales, private router: Router) {
     this.param.myVar = setTimeout(function toHome() {
       location.replace('./themes');
-    }, 30000 );
+    }, 300000 );
   }
 
   ngOnInit() {

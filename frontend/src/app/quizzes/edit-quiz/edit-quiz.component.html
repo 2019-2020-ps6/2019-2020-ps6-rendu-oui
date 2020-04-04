@@ -1,9 +1,15 @@
-<div class="edit-quiz">
-  <div *ngIf="quiz" id="edit">
-    <h2 id="nom">{{quiz.name}}</h2>
-    <app-question-form [quiz]="quiz" id="question-form"></app-question-form>
-    <app-question-list [quiz]="quiz" id="questions"></app-question-list>
-    <br>
-    <button class="button-card" routerLink="../../quizzes" id="quizzes">Retour à la liste des quiz</button>
-  </div>
+<div id="topHeader">
+  <button class="return-button" routerLink="../../quizzes" id="btnQuiz">Retour à la liste des quiz</button>
+  <span id="nom">Quiz édité : {{quiz.name}}</span>
 </div>
+
+<div *ngIf="quiz" id="edit">
+    <app-question-form [quiz]="quiz" id="question-form"></app-question-form>
+</div>
+
+<div>
+  <app-question-list [quiz]="quiz" id="questions"></app-question-list>
+</div>
+
+
+

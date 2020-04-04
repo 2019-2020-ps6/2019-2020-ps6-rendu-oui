@@ -1,7 +1,10 @@
 <div *ngIf="theme">
-  <span id="theme"> <strong> Thème sélectionné : {{theme.name}} </strong> </span>
+  <div id="headerDiv">  <span id="theme"> Thème sélectionné : {{theme.name}} </span>
+         <button class="creation-button" routerLink="../quiz-form" id="btnQuiz">Créer un nouveau quiz</button>
+  </div>
 
-  <button class="button-card" routerLink="../quiz-form" id="creation">Créer un nouveau quiz</button>
+
+
 
   <br>
   <div class="quiz-list" *ngIf="theme.quizzes">
@@ -17,7 +20,8 @@
 </div>
 <br>
 <br>
-<button class="button-card" routerLink="">Retour à la liste des thèmes</button>
-<nav>
-  <button type="submit" class="button-card" routerLink="/user-list" id="users">Voir la liste des utilisateurs</button>
-</nav>
+<div id="lastDiv">
+  <button class="return-button" id="btnTheme" routerLink="">Retour à la liste des thèmes</button>
+  <button type="submit" class="users-button" routerLink="/user-list" id="btnUsers">Voir la liste des utilisateurs</button>
+</div>
+

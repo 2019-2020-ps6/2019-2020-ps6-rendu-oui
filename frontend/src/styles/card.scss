@@ -1,7 +1,7 @@
 @import "./variables";
 
 .card {
-  background: cornflowerblue;
+  background: mintcream;
   border-radius: 2px;
   display: inline-block;
   margin: 1rem;
@@ -11,13 +11,38 @@
 }
 
 .button-card {
-  background-color: $white;
-  border: solid 1px $blue;
-  color: $blue;
   font-weight: bold;
-  padding: 0.5em 1em;
+  padding: 0.2em 0.5em;
+}
+
+.answer-button{
+  background: lightsalmon;
+  font-weight: bold;
+  padding: 0.2em 0.5em;
+  font-size: 200%;
+  margin-top: 10%;
 }
 
 .button-card:hover {
   cursor: pointer;
+}
+
+.return-button{
+  background: beige;
+  font-weight: bold;
+  font-size: 125%;
+  padding: 0.5em 1em;
+}
+
+.users-button{
+  background: lightgrey;
+  font-size: 110%;
+  padding: 0.2em 0.5em;
+}
+
+.creation-button{
+  padding: 0.2em 0.5em;
+  position: relative;
+  background: peru;
+  font-weight: bold;
 }

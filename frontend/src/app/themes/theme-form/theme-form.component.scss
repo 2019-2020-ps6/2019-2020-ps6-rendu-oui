@@ -5,22 +5,29 @@
   left: 35%;
 }
 
-.button-card {
-  font-size: 20px;
-  color: black;
+#nameTheme{
+  font-size: 30px;
+}
+#texteTheme{
+  font-size: 40px;
+}
+
+
+
+#name{
+  font-size: 60%;
 }
 
 #creer {
   position: relative;
-  left: 200px;
-  width: 100px;
-  height: 56px;
-  size: 1000px;
+  left: 69%;
+  font-size: 150%;
+  background: lightsalmon;
 }
 
 #themes {
   position: relative;
-  top: 80px;
-  left: 0;
+  margin-top: 4%;
+  left: 8%;
 }
 

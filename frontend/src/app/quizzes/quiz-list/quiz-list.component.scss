@@ -1,30 +1,41 @@
+@import '../../../styles/card.scss';
+
 .quiz-list {
   display: flex;
   position: relative;
   top: 50px;
 }
 
-.button-card{
+#headerDiv{
+  margin-top: 0.5%;
+}
+#theme{
+  font-size: 135%;
+  font-weight: bold;
+}
+
+#btnQuiz{
+  top: 5px;
+  left: 43%;
+  font-size: 110%;
+}
+
+
+#btnTheme{
   position: relative;
-  font-size: 20px;
-  background: cornflowerblue;
-  left: 20px;
+  font-size: 100%;
+  left: 2%;
 }
 
-#users{
+#btnUsers{
   position: relative;
-  top: 50px;
+  left: 44%;
 }
 
-#creation{
-  top: 10px;
-  left: 40%;
+#lastDiv{
+  margin-top: 8%;
 }
 
-#users{
-  top: 100px;
-  left: 1%;
-}
 
 #router-creation{
   color: white;
@@ -34,11 +45,6 @@
   color : white;
 }
 
-#theme{
-  position: relative;
-  top: 10px;
-  font-size: 30px;
-}
 
 #emptyQuiz{
   position: relative;

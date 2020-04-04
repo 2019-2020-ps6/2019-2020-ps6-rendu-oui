@@ -1,13 +1,13 @@
 <div class="card">
   <div *ngIf="quiz">
-    <h2>Nom: {{quiz.name}}</h2>
+    <h2>Nom : {{quiz.name}}</h2>
 
     <p>Nombre de questions: {{quiz.questions.length}}</p>
 
     <div *ngIf="quiz.questions.length > 0">
-        <button class="button-card" routerLink="../play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="play">Demarrer</button>
+        <button class="button-card" routerLink="../play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="btnDemarrer">Demarrer</button>
     </div>
-    <button class="button-card" (click)="deleteQuiz()" id="supprimer">Supprimer</button>
-    <button class="button-card" routerLink="../edit-quiz/{{quiz.id}}" id="editer">Editer</button>
+    <button class="button-card" (click)="deleteQuiz()" id="btnSupprimer">Supprimer</button>
+    <button class="button-card" routerLink="../edit-quiz/{{quiz.id}}" id="btnEditer">Editer</button>
   </div>
 </div>

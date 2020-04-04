@@ -1,8 +1,8 @@
 <div class="card">
   <div *ngIf="theme">
-    <h2>Nom: {{theme.name}}</h2>
+    <span id="name">Nom: {{theme.name}}</span>
 
-    <p>Nombre de quiz: {{theme.quizzes.length}}</p>
+    <p>Nombre de quiz : {{theme.quizzes.length}}</p>
 
     <button class="button-card" routerLink="/themes/{{theme.id}}/quizzes" id="play">Voir les quiz associés</button>
     <button class="button-card" (click)="deleteTheme()" id="supprimer">Supprimer</button>
