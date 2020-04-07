@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-import { Quiz        } from '../models/quiz.model';
-import { Theme       } from '../models/theme.model';
-import { Question    } from '../models/question.model';
+import { Quiz     } from '../models/quiz.model';
+import { Theme    } from '../models/theme.model';
+import { Question } from '../models/question.model';
 
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import { HttpClient } from '@angular/common/http';
@@ -37,7 +37,7 @@ export class QuizService {
   private questionsPath = '/questions';
   private httpOptions = httpOptionsBase;
 
-  constructor( private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {
     this.setThemesFromUrl();
   }
 
@@ -68,10 +68,7 @@ export class QuizService {
 
   setSelectedTheme(themeId: string) {
     const urlWithId = this.url + '/' + themeId;
-    this.http.get<Theme>(urlWithId).subscribe((theme) => {
-      this.themeSelected$.next(theme);
-      console.log('Thème sélectionné :', theme);
-    });
+    this.http.get<Theme>(urlWithId).subscribe((theme) => this.themeSelected$.next(theme));
   }
 
   /*********************************************************************************************************************
@@ -106,10 +103,7 @@ export class QuizService {
 
   addQuestion(question: Question, quiz: Quiz, themeId: string) {
     const questionUrl = this.url + '/' + themeId + this.quizzesPath + '/' + quiz.id + this.questionsPath;
-    this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => {
-      this.setSelectedQuiz(themeId, quiz.id);
-      console.log('Question ajoutée :', question);
-    });
+    this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(themeId, quiz.id));
   }
 
   deleteQuestion(question: Question, quiz: Quiz, themeId: string) {

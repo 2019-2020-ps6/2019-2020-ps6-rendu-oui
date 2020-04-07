@@ -7,8 +7,8 @@
       <ng-template #classic>
         <button class="answer-button" (click)="checkAnswer(answer,false); clearTimeout()">{{answer.value}}</button>
       </ng-template>
-      <ng-template #lastQuestion> <!-- Retour à la liste des quiz après avoir répondu -->
-        <button class="answer-button" (click)="checkAnswer(answer,true); clearTimeout()"> {{answer.value}}</button>
+      <ng-template #lastQuestion> <!-- Retour à la liste des thèmes après avoir répondu -->
+        <button class="answer-button" (click)="checkAnswer(answer,true); clearTimeout()">{{answer.value}}</button>
       </ng-template>
     </div>
   </div>
