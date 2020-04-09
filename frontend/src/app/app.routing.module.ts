@@ -12,6 +12,7 @@ import { QuestionGameComponent } from './questions/question-game/question-game.c
 
 import { UserListComponent } from './users/user-list/user-list.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { QuizResultsComponent } from './quizzes/quiz-results/quiz-results.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/themes', pathMatch: 'full'},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'themes/:idTheme/play-quiz/:idQuiz/question-game/:id', component: QuestionGameComponent},
 
   {path: 'user-list', component: UserListComponent},
-  {path: 'edit-user/:id', component: EditUserComponent}
+  {path: 'edit-user/:id', component: EditUserComponent},
+  {path: 'themes/:idTheme/quizzes/:idQuiz/results/questions', component: QuizResultsComponent}
 ];
 
 @NgModule({

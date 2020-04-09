@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { Quiz     } from '../models/quiz.model';
 import { Theme    } from '../models/theme.model';
-import { Question } from '../models/question.model';
+import {Answer, Question} from '../models/question.model';
 
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import { HttpClient } from '@angular/common/http';
@@ -101,13 +101,28 @@ export class QuizService {
    *        QUESTION                                                                                                   *
    ********************************************************************************************************************/
 
+  getQuestions(themeId: number, quizId: number): Observable<Question[]> {
+    const questionUrl = this.url + '/' + themeId + this.quizzesPath + '/' + quizId + '/results' +  this.questionsPath;
+    return this.http.get<Question[]>(questionUrl);
+  }
+
   addQuestion(question: Question, quiz: Quiz, themeId: string) {
     const questionUrl = this.url + '/' + themeId + this.quizzesPath + '/' + quiz.id + this.questionsPath;
     this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(themeId, quiz.id));
   }
 
+  addQuestionGame(question: Question, quiz: Quiz, themeId: number) {
+    const questionUrl = this.url + '/' + themeId + this.quizzesPath + '/' + quiz.id + '/results' +  this.questionsPath;
+    this.http.post<Question>(questionUrl, question, this.httpOptions);
+  }
   deleteQuestion(question: Question, quiz: Quiz, themeId: string) {
     const questionUrl = this.url + '/' + themeId + this.quizzesPath + '/' + quiz.id + this.questionsPath + '/' + question.id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(themeId, quiz.id));
+  }
+
+  ansQuestion(question: Question, quiz: Quiz, themeId: string, answer: Answer) {
+    const answerUrl = this.url + '/' + themeId + this.quizzesPath + '/' +  quiz.id + '/results' +
+      this.questionsPath + '/' + question.id + '/answers';
+    this.http.post<Answer>(answerUrl, answer, this.httpOptions);
   }
 }

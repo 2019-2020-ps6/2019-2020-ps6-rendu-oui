@@ -4,9 +4,12 @@ const { Theme, Quiz, Question } = require('../../../models')
 const { filterQuizzesFromTheme, getQuizFromTheme } = require('./manager')
 
 const QuestionsRouter = require('./questions')
+const ResultsRouter = require('./questionsResults')
 
 const router = new Router({ mergeParams: true })
 router.use('/:quizId/questions', QuestionsRouter)
+router.use('/:quizId/results/questions', ResultsRouter)
+
 
 router.get('/', (req, res) => {
   try {

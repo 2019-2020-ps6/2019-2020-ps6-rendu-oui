@@ -28,6 +28,7 @@ import { UserFormComponent     } from './users/user-form/user-form.component';
 import { EditUserComponent     } from './users/edit-user/edit-user.component';
 
 import { VariablesGlobales } from './questions/variablesGlobales';
+import {QuizResultsComponent} from './quizzes/quiz-results/quiz-results.component';
 
 @NgModule({
   declarations: [ // Déclaration des composants
@@ -47,6 +48,7 @@ import { VariablesGlobales } from './questions/variablesGlobales';
     QuestionListComponent,
     QuestionFormComponent,
     QuestionGameComponent,
+    QuizResultsComponent,
 
     UserComponent,
     UserListComponent,

@@ -1,0 +1,12 @@
+<p> Résultats </p>
+
+
+<div *ngIf="quiz">
+  <p> Résultats du quiz : <span> {{quiz.name}} </span></p>
+  <div *ngFor="let question of questions">
+    <p> {{question.label}}</p>
+    <p> Répondu au bout de {{question.answers.length}} fois </p>
+  </div>
+</div>
+
+<button class="return-button" routerLink="../../../../quizzes" id="btnQuiz">Retour à la liste des quiz</button>

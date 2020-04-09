@@ -51,6 +51,7 @@ export class QuestionGameComponent implements OnInit {
 
   checkAnswer(answer: Answer, isLast: boolean): void {
     this.answerIsCorrect = answer.isCorrect; // Useful to display 'BRAVO !'
+    this.quizService.ansQuestion(this.question, this.quiz, this.theme.id, answer);
     if (!this.answerIsCorrect) {
       timer(500).subscribe(() => {
         const indexQuestion = this.quiz.questions.indexOf(this.question);
