@@ -2,10 +2,6 @@
   <div id="headerDiv">  <span id="theme"> Thème sélectionné : {{theme.name}} </span>
          <button class="creation-button" routerLink="../quiz-form" id="btnQuiz">Créer un nouveau quiz</button>
   </div>
-
-
-
-
   <br>
   <div class="quiz-list" *ngIf="theme.quizzes">
     <div id="emptyQuiz" *ngIf="theme.quizzes.length ===0">
