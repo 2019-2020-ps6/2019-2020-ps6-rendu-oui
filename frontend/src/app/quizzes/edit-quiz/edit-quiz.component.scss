@@ -7,14 +7,17 @@
 
 #nom{
   text-align: center;
+  margin-left: 22%;
+  font-weight: bold;
+  font-size: 130%;
 }
 
 
 #question-form{
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 11%;
-  width:40%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
@@ -26,10 +29,5 @@
   margin-left: 25%;
 }
 
-#nom{
-  margin-left: 22%;
-  font-weight: bold;
-  font-size: 130%;
-}
 
 

@@ -1,12 +1,16 @@
 @import '../../../styles/card.scss';
 
 #form{
+  flex-wrap: wrap;
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+#reponses{
+
+}
 
 #enonce{
   font-weight: bold;
