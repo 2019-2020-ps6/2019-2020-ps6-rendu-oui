@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card" id="form">
   <div *ngIf="question">
     <div id="enonce">Enoncé : {{question.label}}</div>
 
-    <div *ngFor="let answer of question.answers, let i = index">
+    <div *ngFor="let answer of question.answers, let i = index" id="reponses">
       <div *ngIf="quiz && quiz.questions.length > quiz.questions.indexOf(question)+1; then classic else lastQuestion"></div>
       <ng-template #classic>
         <button class="answer-button" (click)="checkAnswer(answer,false); clearTimeout()">{{answer.value}}</button>
