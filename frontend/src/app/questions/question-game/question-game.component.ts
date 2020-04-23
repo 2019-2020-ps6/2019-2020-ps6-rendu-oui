@@ -46,6 +46,7 @@ export class QuestionGameComponent implements OnInit {
 
       const indexQuestion = this.quiz.questions.findIndex((q) => Number(q.id) === id);
       this.question = this.quiz.questions[indexQuestion];
+      console.log(this.question);
     });
   }
 

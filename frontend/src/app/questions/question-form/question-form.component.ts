@@ -33,6 +33,7 @@ export class QuestionFormComponent implements OnInit {
   private initializeQuestionForm() {
     this.questionForm = this.formBuilder.group({
       label: '',
+      urlImage: '',
       answers: this.formBuilder.array([])
     });
   }
@@ -56,8 +57,8 @@ export class QuestionFormComponent implements OnInit {
   addQuestion() {
     const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const questionToAdd = this.questionForm.getRawValue() as Question;
+    console.log(questionToAdd);
     this.quizService.addQuestion(questionToAdd, this.quiz, String(idTheme));
-
     this.initializeQuestionForm(); // Remise à 'zéro' des champs de saisie
   }
 
