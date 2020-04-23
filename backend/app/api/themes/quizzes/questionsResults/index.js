@@ -49,5 +49,23 @@ router.post('/', (req, res) => {
   }
 })
 
+router.put('/:questionId', (req, res) => {
+  try {
+    const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
+    const updatedQuestion = Question.update(req.params.questionId, { label: req.body.label, quizId: question.quizId })
+    res.status(200).json(updatedQuestion)
+  } catch (err) {
+    manageAllErrors(res, err)
+  }
+})
+
+router.delete('/:questionId', (req, res) => {
+  try {
+    Question.delete(req.params.questionId)
+    res.status(204).end()
+  } catch (err) {
+    manageAllErrors(res, err)
+  }
+})
 
 module.exports = router

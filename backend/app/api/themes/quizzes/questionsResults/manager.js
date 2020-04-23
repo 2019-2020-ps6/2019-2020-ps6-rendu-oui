@@ -2,6 +2,8 @@ const { Quiz, Question } = require('../../../../models')
 
 const { NotFoundError } = require('../../../../utils/errors/not-found-error')
 
+const { filterAnswersFromQuestion } = require('./answers/manager')
+
 /**
  * Questions Manager.
  * This file contains all the logic needed to by the question routes.
@@ -15,6 +17,12 @@ const { NotFoundError } = require('../../../../utils/errors/not-found-error')
 const filterQuestionsFromQuiz = (quizId) => {
   const questions = Question.get()
   const parsedId = parseInt(quizId, 10)
+  /*
+  return questions.map(() => {
+    const question = questions.filter((q) => q.quizId === parsedId)
+    const answers = filterAnswersFromQuestion(question.id)
+    return { ...question, answers }
+  }) */
   return questions.filter((question) => question.quizId === parsedId)
 }
 
@@ -32,7 +40,8 @@ const getQuestionFromQuiz = (quizId, questionId) => {
 
   if (question.quizId !== quizIdInt) throw new NotFoundError(`${question.name} id=${questionId} was not found for ${quiz.name} id=${quiz.id} : not found`)
 
-  return question
+  const answers = filterAnswersFromQuestion(question.id)
+  return { ...question, answers }
 }
 
 module.exports = {

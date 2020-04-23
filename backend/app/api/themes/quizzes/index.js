@@ -10,7 +10,6 @@ const router = new Router({ mergeParams: true })
 router.use('/:quizId/questions', QuestionsRouter)
 router.use('/:quizId/results/questions', ResultsRouter)
 
-
 router.get('/', (req, res) => {
   try {
     console.log('Params get (index quiz) :', req.params)

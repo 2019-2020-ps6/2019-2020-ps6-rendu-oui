@@ -18,9 +18,7 @@ export class QuizResultsComponent implements OnInit {
   private quiz: Quiz;
   private questions: Question[];
 
-
   constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router) {
-
   }
 
   ngOnInit() {
@@ -37,14 +35,13 @@ export class QuizResultsComponent implements OnInit {
       const indexQuiz = this.theme.quizzes.findIndex((q) => Number(q.id) === idQuiz);
       this.quiz = this.theme.quizzes[indexQuiz];
 
-      this.questions = this.quiz.questions;
-      this.questions.forEach((question) => { question.answers = [];
-                                             });
-      this.quizService.getQuestions(idTheme, idQuiz).subscribe((questions) => this.questions = questions);
-
+      // this.quizService.getQuestionsResults(String(idTheme), String(idQuiz)).subscribe((questions) => this.questions = questions);
+      this.questions = [];
+      this.quiz.questions.forEach((question) => {
+        console.log('questions :', this.questions);
+        this.quizService.getQuestionResults(String(idTheme), String(idQuiz), question.id)
+          .subscribe((qResults) => this.questions[this.questions.length] = qResults);
+      });
     });
   }
-
-
-
 }
