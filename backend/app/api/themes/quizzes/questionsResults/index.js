@@ -1,6 +1,6 @@
 const { Router } = require('express')
 
-const { Answer, Quiz, Question } = require('../../../../models')
+const { /* Answer, */ Quiz, Question } = require('../../../../models')
 const { filterQuestionsFromQuiz, getQuestionFromQuiz } = require('./manager')
 
 const manageAllErrors = require('../../../../utils/routes/error-management')
@@ -8,7 +8,6 @@ const manageAllErrors = require('../../../../utils/routes/error-management')
 const AnswersRouter = require('./answers')
 
 const router = new Router({ mergeParams: true })
-router.use('/:questionId/answers', AnswersRouter)
 
 router.get('/', (req, res) => {
   try {
@@ -37,12 +36,13 @@ router.post('/', (req, res) => {
     console.log('Params post (index question) :', req.params)
     Quiz.getById(req.params.quizId)
     const quizId = parseInt(req.params.quizId, 10)
-    let question = Question.create({ label: req.body.label, quizId })
-    // If answers have been provided in the request, we create the answer and update the response to send.
+    const question = Question.create({ label: req.body.label, quizId })
+    console.log('réponses ', question.answers)
+    /* If answers have been provided in the request, we create the answer and update the response to send.
     if (req.body.answers && req.body.answers.length > 0) {
       const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
       question = { ...question, answers }
-    }
+    } */
     res.status(201).json(question)
   } catch (err) {
     manageAllErrors(res, err)
@@ -68,4 +68,5 @@ router.delete('/:questionId', (req, res) => {
   }
 })
 
+router.use('/:questionId/answers', AnswersRouter)
 module.exports = router

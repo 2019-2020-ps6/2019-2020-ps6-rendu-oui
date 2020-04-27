@@ -63,6 +63,7 @@ export class QuestionGameComponent implements OnInit {
         }
       }); */
       this.quizService.getQuestionResults(String(idTheme), String(idQuiz), String(id)).subscribe((q) => {
+        console.log('q :', q);
         if (q === undefined) { // this.question n'a encore jamais été répondue
           this.questionTmp = this.question;
           this.questionTmp.answers = [];

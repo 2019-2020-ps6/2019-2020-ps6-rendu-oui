@@ -7,8 +7,6 @@ const QuestionsRouter = require('./questions')
 const ResultsRouter = require('./questionsResults')
 
 const router = new Router({ mergeParams: true })
-router.use('/:quizId/questions', QuestionsRouter)
-router.use('/:quizId/results/questions', ResultsRouter)
 
 router.get('/', (req, res) => {
   try {
@@ -66,4 +64,6 @@ router.delete('/:quizId', (req, res) => {
   }
 })
 
+router.use('/:quizId/questions', QuestionsRouter)
+router.use('/:quizId/results/questions', ResultsRouter)
 module.exports = router

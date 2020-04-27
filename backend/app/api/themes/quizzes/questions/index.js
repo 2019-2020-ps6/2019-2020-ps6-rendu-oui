@@ -8,7 +8,7 @@ const manageAllErrors = require('../../../../utils/routes/error-management')
 const AnswersRouter = require('./answers')
 
 const router = new Router({ mergeParams: true })
-router.use('/:questionId/answers', AnswersRouter)
+// const router = new Router()
 
 router.get('/', (req, res) => {
   try {
@@ -33,6 +33,7 @@ router.get('/:questionId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
+    console.log('route path', router)
     // Check if quizId exists, if not it will throw a NotFoundError
     console.log('Params post (index question) :', req.params)
     Quiz.getById(req.params.quizId)
@@ -69,4 +70,5 @@ router.delete('/:questionId', (req, res) => {
   }
 })
 
+router.use('/:questionId/answers', AnswersRouter)
 module.exports = router
