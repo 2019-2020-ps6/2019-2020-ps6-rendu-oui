@@ -1,7 +1,6 @@
-<div id="topHeader">
-  <button class="return-button" routerLink="../../quizzes" id="btnQuiz">Retour à la liste des quiz</button>
-  <span id="nom">Quiz : {{quiz.name}}</span>
-</div>
+<button class="return-button" routerLink="../../quizzes" id="btnQuiz">Retour à la liste des quiz</button>
+<br>
+<span id="nom">Quiz : {{quiz.name}}</span>
 
 <div *ngIf="quiz" id="edit">
     <app-question-form [quiz]="quiz" id="question-form"></app-question-form>

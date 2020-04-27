@@ -1,15 +1,13 @@
 @import '../../../styles/card';
 
-#topHeader{
-  margin-top: 2%;
-  margin-left: 2%;
-}
 
 #nom{
-  text-align: center;
-  margin-left: 27%;
+  position: absolute;
   font-weight: bold;
   font-size: 130%;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
@@ -31,6 +29,8 @@
 }
 
 #btnQuiz{
+  margin-top: 1%;
+  margin-left: 1%;
   font-size: 100%;
 }
 

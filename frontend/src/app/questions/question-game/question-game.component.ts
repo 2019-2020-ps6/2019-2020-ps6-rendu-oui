@@ -95,6 +95,7 @@ export class QuestionGameComponent implements OnInit {
       });
     } else {
       if (!isLast) {
+        console.log('cc');
         timer(2000).subscribe(() => location.reload());
 
         const indexNextQuestion = this.quiz.questions.findIndex((q) => q.id === this.question.id) + 1;
