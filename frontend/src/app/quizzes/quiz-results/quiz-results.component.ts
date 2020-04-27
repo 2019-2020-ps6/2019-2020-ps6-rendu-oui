@@ -40,7 +40,10 @@ export class QuizResultsComponent implements OnInit {
       this.quiz.questions.forEach((question) => {
         console.log('questions :', this.questions);
         this.quizService.getQuestionResults(String(idTheme), String(idQuiz), question.id)
-          .subscribe((qResults) => this.questions[this.questions.length] = qResults);
+          .subscribe((qResults) => {
+            qResults.answers = [];
+            this.questions[this.questions.length] = qResults;
+          });
       });
     });
   }

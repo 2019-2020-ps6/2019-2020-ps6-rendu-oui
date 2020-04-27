@@ -3,13 +3,9 @@
 #form{
   flex-wrap: wrap;
   position: absolute;
-  top: 40%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-#reponses{
-
 }
 
 #enonce{
@@ -22,4 +18,8 @@
   font-weight: bold;
   font-size: 200%;
   color: black;
+}
+
+audio {
+  display:none;
 }
