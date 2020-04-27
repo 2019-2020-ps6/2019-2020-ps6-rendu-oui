@@ -14,5 +14,13 @@
   </div>
 
   <br>
-  <div *ngIf="answerIsCorrect" id="bravo">BRAVO !</div>
+  <div *ngIf="answerIsCorrect" id="bravo">
+    BRAVO !
+    <br>
+    <br>
+    <audio controls autoplay>
+      <source src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Applause.ogg" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 </div>
