@@ -1,5 +1,12 @@
+@import '../../../styles/card.scss';
+
 .user-list {
   display: flex;
+}
+#btnTheme{
+  position: relative;
+  font-size: 100%;
+  left: 2%;
 }
 
 .button-card{

@@ -9,6 +9,7 @@ const { NotFoundError } = require('../../../../../utils/errors/not-found-error')
  */
 const filterAnswersFromQuestion = (questionId) => Answer.get().filter((answer) => (answer.questionId === questionId))
 
+
 /**
  * getAnswerFromQuestion.
  * This function retrieves an answer from a question. It will throw a not found exception if the questionId in the answer is different from the one provided in parameter.
@@ -25,7 +26,15 @@ const getAnswerFromQuestion = (quizId, questionId, answerId) => {
   return answer
 }
 
+const getUrlFromQuestion = (quizId, questionId) => {
+  const question = getQuestionFromQuiz(quizId, questionId)
+  console.log(question)
+  console.log(question.urlImage)
+  return question.urlImage
+}
+
 module.exports = {
   getAnswerFromQuestion,
   filterAnswersFromQuestion,
+  getUrlFromQuestion,
 }

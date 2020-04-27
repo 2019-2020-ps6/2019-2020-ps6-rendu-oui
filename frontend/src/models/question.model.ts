@@ -6,6 +6,7 @@ export interface Answer {
 
 export interface Question {
     id: string;
+    urlImage?: string;
     label: string;
     answers: Answer[];
 }

@@ -45,6 +45,11 @@ router.post('/', (req, res) => {
       const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
       question = { ...question, answers }
     }
+    if (req.body.urlImage ) {
+      const url = req.body.urlImage
+      question = { ...question, urlImage: url }
+    }
+    console.log('question', question)
     res.status(201).json(question)
   } catch (err) {
     manageAllErrors(res, err)

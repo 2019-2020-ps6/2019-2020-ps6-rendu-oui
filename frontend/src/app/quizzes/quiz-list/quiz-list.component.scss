@@ -2,6 +2,7 @@
 
 .quiz-list {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
   top: 50px;
 }
@@ -10,13 +11,15 @@
   margin-top: 0.5%;
 }
 #theme{
+  position: relative;
+  left : 1%;
   font-size: 135%;
   font-weight: bold;
 }
 
 #btnQuiz{
   top: 5px;
-  left: 43%;
+  left: 45%;
   font-size: 110%;
 }
 
@@ -25,11 +28,14 @@
   position: relative;
   font-size: 100%;
   left: 2%;
+  margin-bottom: 2%;
 }
 
 #btnUsers{
   position: relative;
-  left: 44%;
+  left : 49%;
+  background: lightgrey;
+  font-size: 110%;
 }
 
 #lastDiv{

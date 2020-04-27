@@ -33,6 +33,7 @@ export class QuestionFormComponent implements OnInit {
   private initializeQuestionForm() {
     this.questionForm = this.formBuilder.group({
       label: '',
+      urlImage: '',
       answers: this.formBuilder.array([])
     });
   }
