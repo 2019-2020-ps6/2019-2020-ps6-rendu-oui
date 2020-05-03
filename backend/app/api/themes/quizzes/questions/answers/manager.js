@@ -29,7 +29,6 @@ const getAnswerFromQuestion = (quizId, questionId, answerId) => {
 const getUrlFromQuestion = (quizId, questionId) => {
   const question = getQuestionFromQuiz(quizId, questionId)
   console.log(question)
-  console.log(question.urlImage)
   return question.urlImage
 }
 

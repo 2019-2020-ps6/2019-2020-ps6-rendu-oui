@@ -1,6 +1,6 @@
 <div *ngIf="quiz">
   <p id="results"> Résultats du quiz : <span> {{quiz.name}} </span></p>
-  <div class="card" *ngIf="questions">
+  <div id="questions" class="card" *ngIf="questions">
     <div *ngFor="let question of questions">
       <p>{{question.label}}</p>
       <p>Répondu au bout de <span id="nbRep">{{question.answers.length}} fois</span>.</p>

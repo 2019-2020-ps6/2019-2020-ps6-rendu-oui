@@ -3,7 +3,7 @@ const { Theme } = require('../../models')
 const { filterQuizzesFromTheme } = require('./quizzes/manager')
 const { filterQuestionsFromQuiz } = require('./quizzes/questions/manager')
 const { filterAnswersFromQuestion } = require('./quizzes/questions/answers/manager')
-const { getUrlFromQuestion } = require('./quizzes/questions/answers/manager')
+// const { getUrlFromQuestion } = require('./quizzes/questions/answers/manager')
 
 /**
  * Function buildTheme.
@@ -17,7 +17,7 @@ const buildTheme = (themeId) => {
     const questions = filterQuestionsFromQuiz(quiz.id)
     const questionWithAnswers = questions.map((question) => {
       const answers = filterAnswersFromQuestion(question.id)
-      //const url = getUrlFromQuestion(quiz.id, question.id)
+      // const url = getUrlFromQuestion(quiz.id, question.id)
       return { ...question, urlImage: '', answers }
     })
     return { ...quiz, questions: questionWithAnswers }

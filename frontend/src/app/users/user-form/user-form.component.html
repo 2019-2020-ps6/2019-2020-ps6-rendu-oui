@@ -11,6 +11,11 @@
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
     </label>
     <br>
+    <label for="fonction">
+      Aide-Soignant :
+      <input class="input-custom" type="checkbox" id="fonction" [formControlName]="'fonction'">
+    </label>
+    <br>
     <br>
     <button type="submit" class="button-card" (click)="addUser()">Create</button>
   </form>
