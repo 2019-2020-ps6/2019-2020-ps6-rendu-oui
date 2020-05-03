@@ -16,6 +16,7 @@ import { QuizComponent         } from './quizzes/quiz/quiz.component';
 import { QuizListComponent     } from './quizzes/quiz-list/quiz-list.component';
 import { QuizFormComponent     } from './quizzes/quiz-form/quiz-form.component';
 import { EditQuizComponent     } from './quizzes/edit-quiz/edit-quiz.component';
+import { QuizResultsComponent  } from './quizzes/quiz-results/quiz-results.component';
 
 import { QuestionComponent     } from './questions/question/question.component';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
@@ -28,7 +29,6 @@ import { UserFormComponent     } from './users/user-form/user-form.component';
 import { EditUserComponent     } from './users/edit-user/edit-user.component';
 
 import { VariablesGlobales } from './questions/variablesGlobales';
-import {QuizResultsComponent} from './quizzes/quiz-results/quiz-results.component';
 
 @NgModule({
   declarations: [ // Déclaration des composants
@@ -43,12 +43,12 @@ import {QuizResultsComponent} from './quizzes/quiz-results/quiz-results.componen
     QuizListComponent,
     QuizFormComponent,
     EditQuizComponent,
+    QuizResultsComponent,
 
     QuestionComponent,
     QuestionListComponent,
     QuestionFormComponent,
     QuestionGameComponent,
-    QuizResultsComponent,
 
     UserComponent,
     UserListComponent,

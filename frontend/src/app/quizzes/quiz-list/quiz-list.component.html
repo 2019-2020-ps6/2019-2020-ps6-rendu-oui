@@ -8,8 +8,6 @@
       <span id="emptyQuizSpan"> <strong>Aucun quiz n'a été créé </strong> </span>
     </div>
     <div class="quiz" *ngFor="let quiz of theme.quizzes">
-      <!--Inputs & Output allow communication between parent & child components.-->
-      <!--More information: https://angular.io/guide/component-interaction-->
       <app-quiz [quiz]="quiz" (quizDeleted)="deleteQuiz($event)"></app-quiz>
     </div>
   </div>
@@ -18,6 +16,4 @@
 <br>
 <div id="lastDiv">
   <button class="return-button" id="btnTheme" routerLink="">Retour à la liste des thèmes</button>
- <!-- <button type="submit" class="users-button" routerLink="/user-list" id="btnUsers">Voir la liste des utilisateurs</button> -->
 </div>
-
