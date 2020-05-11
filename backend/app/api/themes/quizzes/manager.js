@@ -2,6 +2,9 @@ const { Theme, Quiz } = require('../../../models')
 
 const { NotFoundError } = require('../../../utils/errors/not-found-error')
 
+const { filterQuestionsFromQuiz } = require('./questions/manager')
+const { filterAnswersFromQuestion } = require('./questions/answers/manager')
+
 /**
  * filterQuizzesFromTheme.
  * This function filters among the quizzes to return only the quiz linked with the given themeId.
@@ -10,6 +13,15 @@ const { NotFoundError } = require('../../../utils/errors/not-found-error')
 const filterQuizzesFromTheme = (themeId) => {
   const quizzes = Quiz.get()
   const parsedId = parseInt(themeId, 10)
+  /*
+  return quizzes.filter((quiz) => quiz.themeId === parsedId).map((quiz) => {
+    const questions = filterQuestionsFromQuiz(quiz.id)
+    const questionWithAnswers = questions.map((question) => {
+      const answers = filterAnswersFromQuestion(question.id)
+      return { ...question, answers }
+    })
+    return { ...quiz, questions: questionWithAnswers }
+  }) */
   return quizzes.filter((quiz) => quiz.themeId === parsedId)
 }
 
@@ -27,7 +39,12 @@ const getQuizFromTheme = (themeId, quizId) => {
 
   if (quiz.themeId !== themeIdInt) throw new NotFoundError(`${quiz.name} id=${quizId} was not found for ${theme.name} id=${theme.id} : not found`)
 
-  return quiz
+  const questions = filterQuestionsFromQuiz(quiz.id)
+  const questionWithAnswers = questions.map((question) => {
+    const answers = filterAnswersFromQuestion(question.id)
+    return { ...question, answers }
+  })
+  return { ...quiz, questions: questionWithAnswers }
 }
 
 module.exports = {

@@ -7,30 +7,28 @@
   top: 50px;
 }
 
-
-#btnTheme{
+#btnTheme {
   left: 20%;
   font-size: 65%;
 }
 
-#btnUsers{
-  margin-top : 5%;
+#btnUsers {
+  margin-top: 5%;
   position: relative;
-  left : 75%;
+  left: 75%;
   background: lightgrey;
   font-size: 110%;
-
 }
 
-#router-creation{
+#router-creation {
   color: white;
 }
 
-#router-user{
-  color : white;
+#router-user {
+  color: white;
 }
 
-#accueil{
+#accueil {
   position: relative;
   top: 10px;
   left: 42%;
@@ -44,16 +42,16 @@
   font-size: 35px;
 }
 
-#topMenuStyle{
-  margin-left: 44%;
+#topMenuStyle {
+  margin-left: 60%;
   margin-top: 1%;
   font-size: 40px;
 }
 
-#bienvenue{
+#bienvenue {
   font-weight: bold;
+  position: absolute;
+  margin-top: 1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
-
-
-

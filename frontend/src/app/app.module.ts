@@ -16,6 +16,7 @@ import { QuizComponent         } from './quizzes/quiz/quiz.component';
 import { QuizListComponent     } from './quizzes/quiz-list/quiz-list.component';
 import { QuizFormComponent     } from './quizzes/quiz-form/quiz-form.component';
 import { EditQuizComponent     } from './quizzes/edit-quiz/edit-quiz.component';
+import { QuizResultsComponent  } from './quizzes/quiz-results/quiz-results.component';
 
 import { QuestionComponent     } from './questions/question/question.component';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
@@ -42,6 +43,7 @@ import { VariablesGlobales } from './questions/variablesGlobales';
     QuizListComponent,
     QuizFormComponent,
     EditQuizComponent,
+    QuizResultsComponent,
 
     QuestionComponent,
     QuestionListComponent,

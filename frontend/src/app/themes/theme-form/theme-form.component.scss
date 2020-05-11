@@ -1,20 +1,22 @@
 @import '../../../styles/card.scss';
 
 #form {
-  position: relative;
-  left: 35%;
+  position: absolute;
+  margin-top: 50px;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#nameTheme{
+#nameTheme {
   font-size: 30px;
 }
-#texteTheme{
+
+#texteTheme {
   font-size: 40px;
 }
 
-
-
-#name{
+#name {
   font-size: 60%;
 }
 
@@ -26,8 +28,8 @@
 }
 
 #themes {
+  font-size: 20px;
   position: relative;
-  margin-top: 4%;
+  margin-top: 25%;
   left: 8%;
 }
-

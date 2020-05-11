@@ -22,11 +22,7 @@ const filterQuestionsFromQuiz = (quizId) => {
     const question = questions.filter((q) => q.quizId === parsedId)
     const answers = filterAnswersFromQuestion(question.id)
     return { ...question, answers }
-  })
-
-  const question = questions.filter((question) => question.quizId === parsedId)
-  const answers = filterAnswersFromQuestion(question.id)
-  return { ...question, answers } */
+  }) */
   return questions.filter((question) => question.quizId === parsedId)
 }
 
@@ -41,7 +37,6 @@ const getQuestionFromQuiz = (quizId, questionId) => {
   const quiz = Quiz.getById(quizId)
   const quizIdInt = parseInt(quizId, 10)
   const question = Question.getById(questionId)
-  console.log('question (manager question) :', question)
 
   if (question.quizId !== quizIdInt) throw new NotFoundError(`${question.name} id=${questionId} was not found for ${quiz.name} id=${quiz.id} : not found`)
 

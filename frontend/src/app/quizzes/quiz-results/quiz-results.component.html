@@ -1,0 +1,13 @@
+<div *ngIf="quiz">
+  <p id="results"> Résultats du quiz : <span> {{quiz.name}} </span></p>
+  <div id="questions" class="card" *ngIf="questions">
+    <div *ngFor="let question of questions">
+      <p>{{question.label}}</p>
+      <p>Répondu au bout de <span id="nbRep">{{question.answers.length}} fois</span>.</p>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button class="return-button" routerLink="../../../../quizzes" id="btnQuiz">Retour à la liste des quiz</button>
+</div>

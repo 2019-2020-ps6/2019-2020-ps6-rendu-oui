@@ -17,7 +17,8 @@ export class UserFormComponent implements OnInit {
     // Form creation
     this.userForm = this.formBuilder.group({
       lastname: [''],
-      name: ['']
+      name: [''],
+      fonction: false,
     });
   }
 

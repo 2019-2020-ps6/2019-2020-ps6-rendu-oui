@@ -57,8 +57,9 @@ export class QuestionFormComponent implements OnInit {
   addQuestion() {
     const idTheme = +this.route.snapshot.paramMap.get('idTheme');
     const questionToAdd = this.questionForm.getRawValue() as Question;
-    console.log(questionToAdd);
-    this.quizService.addQuestion(questionToAdd, this.quiz, String(idTheme));
+    console.log('questionToAdd ', questionToAdd);
+    this.quizService.addQuestion(String(idTheme), this.quiz.id, questionToAdd);
+
     this.initializeQuestionForm(); // Remise à 'zéro' des champs de saisie
   }
 

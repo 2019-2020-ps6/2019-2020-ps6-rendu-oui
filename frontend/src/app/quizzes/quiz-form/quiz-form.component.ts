@@ -29,9 +29,6 @@ export class QuizFormComponent implements OnInit {
     this.quizForm = this.formBuilder.group({
       name: [''],
     });
-    // You can also add validators to your inputs such as required, maxlength or even create your own validator!
-    // More information: https://angular.io/guide/reactive-forms#simple-form-validation
-    // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
     const idTheme = +this.route.snapshot.paramMap.get('id');
     this.quizService.getTheme(idTheme).subscribe((theme) => this.theme = theme);
   }

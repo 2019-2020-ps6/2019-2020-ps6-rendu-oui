@@ -6,6 +6,7 @@
 
     <div *ngIf="quiz.questions.length > 0">
         <button class="button-card" routerLink="../play-quiz/{{quiz.id}}/question-game/{{quiz.questions[0].id}}" id="btnDemarrer">Demarrer</button>
+        <button class="button-card" routerLink="../quizzes/{{quiz.id}}/results/questions" id="btnResultats">Résultats</button>
     </div>
     <button class="button-card" (click)="deleteQuiz()" id="btnSupprimer">Supprimer</button>
     <button class="button-card" routerLink="../edit-quiz/{{quiz.id}}" id="btnEditer">Editer</button>

@@ -1,6 +1,6 @@
 const { Router } = require('express')
 
-const { Quiz, Question, Answer } = require('../../../../models')
+const { /* Answer, */ Quiz, Question } = require('../../../../models')
 const { filterQuestionsFromQuiz, getQuestionFromQuiz } = require('./manager')
 
 const manageAllErrors = require('../../../../utils/routes/error-management')
@@ -12,7 +12,7 @@ const router = new Router({ mergeParams: true })
 router.get('/', (req, res) => {
   try {
     // Check if quizId exists, if not it will throw a NotFoundError
-    console.log('Params get (index question) :', req.params)
+    console.log('Params get (index questionsResults) :', req.params)
     Quiz.getById(req.params.quizId)
     res.status(200).json(filterQuestionsFromQuiz(req.params.quizId))
   } catch (err) {
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
 router.get('/:questionId', (req, res) => {
   try {
-    console.log('Params get with id (index question) :', req.params)
+    console.log('Params get with id (index questionsResults) :', req.params)
     const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
     res.status(200).json(question)
   } catch (err) {
@@ -33,20 +33,16 @@ router.get('/:questionId', (req, res) => {
 router.post('/', (req, res) => {
   try {
     // Check if quizId exists, if not it will throw a NotFoundError
-    console.log('Params post (index question) :', req.params)
+    console.log('Params post (index questionsResults) :', req.params)
     Quiz.getById(req.params.quizId)
     const quizId = parseInt(req.params.quizId, 10)
-    let question = Question.create({ label: req.body.label, quizId })
-    // If answers have been provided in the request, we create the answer and update the response to send.
+    const question = Question.create({ label: req.body.label, quizId })
+    console.log('réponses (index questionsResults) :', question.answers)
+    /* If answers have been provided in the request, we create the answer and update the response to send.
     if (req.body.answers && req.body.answers.length > 0) {
       const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
       question = { ...question, answers }
-    }
-    if (req.body.urlImage) {
-      const url = req.body.urlImage
-      question = { ...question, urlImage: url }
-    }
-    console.log('question post (index question) :', question)
+    } */
     res.status(201).json(question)
   } catch (err) {
     manageAllErrors(res, err)
